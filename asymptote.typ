@@ -7,10 +7,11 @@
 
 #show raw: set text(
   font: "Noto Sans Mono",
+  // font: "Jetbrains Mono"
 )
 #set page(
   paper: "a4",
-  margin: (left: 1cm, right: 1cm, top: 2cm, bottom: 1cm),
+  margin: (left: 1cm, right: 1cm, top: 1.5cm, bottom: 1cm),
 )
 #set par(
   justify: true,
@@ -31,16 +32,20 @@
   radius: 3pt,
 )
 #set figure(placement: none)
-
 #show figure: it => {
   show image: box.with(
     inset: 5pt,
     stroke: 1pt + luma(70%),
-    radius: 4pt,
+    radius: 5pt,
   )
   it
 }
 #set line(length: 100%, stroke: 2pt + luma(70%))
+#set raw(
+  syntaxes: (
+    "asy.sublime-syntax",
+  ),
+)
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
@@ -135,29 +140,39 @@
           none
         }
       }
-      block(
-        width: 100%,
-        inset: (top: 0em, bottom: 0em),
-      )[
-        #text(size: 12pt)[
-          #stack(
-            spacing: 1em,
-            grid(
-              columns: (1fr, 1fr),
-              align(left)[#header-text], page-number,
-            ),
-            line(length: 100%, stroke: 1pt + black),
-          )
-        ]
+      text(size: 12pt)[
+        #grid(
+          columns: (1fr, 1fr),
+          align(left)[#upper[#header-text]], page-number,
+        )
       ]
     }
   },
 )
 
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
 = Generalities
 ```asymptote
-unitsize(2cm);
+settings.tex = "lualatex";
+settings.outformat = "pdf";
+settings.prc = false;
 
+texpreamble("
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{unicode-math}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmathfont[Path=fonts/,
+Extension=.ttf,
+]{NotoSansMath-Regular}
+");
+
+unitsize(2cm);
 pair A, B, C, D;
 A=(0,0);
 B=(2,0);
@@ -168,6 +183,7 @@ draw(C--D);
 ```
 #figure(
   image("figures/asy-1.pdf"),
+  caption: [asy-1],
 )
 #line()
 ```asymptote
@@ -182,6 +198,7 @@ draw(C--D);
 ```
 #figure(
   image("figures/asy.2.pdf"),
+  caption: [asy-2],
 )
 #line()
 ```asymptote
@@ -196,6 +213,7 @@ draw(C--D);
 ```
 #figure(
   image("figures/asy.3.pdf"),
+  caption: [asy-3],
 )
 #line()
 ```asymptote
@@ -210,6 +228,7 @@ draw(C--D);
 ```
 #figure(
   image("figures/asy-4.pdf"),
+  caption: [asy-4],
 )
 #line()
 ```asymptote
@@ -223,6 +242,518 @@ draw(A--B);
 draw(C--D);
 ```
 #figure(
-  image("figures/asy-5.pdf")
+  image("figures/asy-5.pdf"),
+  caption: [asy-5],
 )
+#line()
+```asymptote
+size(10cm, 2.5cm, false); // width, height, and whether to preserve
+// aspect ratio
+pair A, B, C, D;
+A=(0,0);
+B=(2,0);
+C=(4,0);
+D=(4,2);
+draw(A--B);
+draw(C--D);
+```
+#figure(
+  image("figures/asy-6.pdf"),
+  caption: [asy-6],
+)
+#line()
+```asymptote
+size(3cm, 10cm, false);
+pair A, B, C, D;
+A=(0,0);
+B=(2,0);
+C=(4,0);
+D=(4,2);
+draw(A--B);
+draw(C--D);
+```
+#figure(
+  image("figures/asy-7.pdf"),
+  caption: [asy-7],
+)
+#line()
+```asymptote
+pair A, B, C, D;
+A=(0,0);
+B=(3cm,0);
+C=(6cm,0);
+D=(6cm,4cm);
+draw(A--B);
+draw(C--D);
+```
+#figure(
+  image("figures/asy-8.pdf"),
+  caption: [asy-8],
+)
+#line()
+```asymptote
+unitsize(1cm);
+pair A, B, C, D;
+A=(0,0);
+B=(3,0);
+C=(6,0);
+D=(6,4);
+draw(A--B);
+draw(C--D);
+```
+#figure(
+  image("figures/asy-9.pdf"),
+  caption: [asy-9],
+)
+#line()
+```asymptote
+unitsize(x=2cm, y=1cm);
+pair A, B, C, D;
+A=(0,0);
+B=(3,0);
+C=(6,0);
+D=(6,4);
+draw(A--B);
+draw(C--D);
+```
+#figure(
+  image("figures/asy-10.pdf"),
+  caption: [asy-10],
+)
+#line()
+```asymptote
+size(10cm,0);
+draw(scale(4)*unitcircle);
+dot((0, 0));
+dot((4, 0));
+fixedscaling((-8,-8),(6,6));
+shipout(bbox(Fill(lightgrey)));
+```
+#figure(
+  image("figures/asy-11.pdf"),
+  caption: [asy-11],
+)
+#line()
+```asymptote
+size(10cm,0);
+path p=(0,0)--(1,0);
+frame object;
+draw(object, scale(8cm)*p);
+add(object);
+add(object, (0,-40));
+```
+#figure(
+  image("figures/asy-12.pdf"),
+  caption: [asy-12],
+)
+#line()
+```asymptote
+size(10cm,0);
+path p=(0,0)--(1,0);
+picture object;
+draw(object,scale(8cm)*p);
+add(object);
+add(object,(0,-40)); // Adds truesize object to currentpicture
+```
+#figure(
+  image("figures/asy-13.pdf"),
+  caption: [asy-13],
+)
+#line()
+```asymptote
+size(6cm,6cm);
+pair A=(0,0), B=(1,0), C=(0,1);
+draw (A--B--C);
+```
+#figure(
+  image("figures/asy-14.pdf"),
+  caption: [asy-14],
+)
+#line()
+```asymptote
+size(6cm, 6cm);
+pair A=(0,0), B=(1,0), C=(0,1);
+draw (A--B--C--cycle);
+```
+#figure(
+  image("figures/asy-15.pdf"),
+  caption: [asy-15],
+)
+#line()
+```asymptote
+size(6cm, 6cm);
+pair [] A;
+A[0]=(-1, -1);
+A[1]=( 1, -1);
+A[2]=( 1,  1);
+A[3]=(-1,  1);
+draw (A[0]--A[1]--A[2]--A[3]--cycle);
+draw (A[0]--A[2]);
+draw (A[1]--A[3]);
+```
+#figure(
+  image("figures/asy-16.pdf"),
+  caption: [asy-16]
+)
+#line()
+```asymptote
+size(6cm,6cm);
+draw(unitsquare);
+dot((0,0)--(1,1)--(0,1)--(1,0));
+draw((0,0)--(1,1));
+draw((1,0)--(0,1));
+```
+#figure(
+  image("figures/asy-17.pdf"),
+  caption: [asy-17]
+)
+#line()
+```asymptote
+size(6cm,3cm,false);
+draw(unitsquare);
+dot((0,0)--(1,1)--(0,1)--(1,0));
+draw((0,0)--(1,1));
+draw((1,0)--(0,1));
+```
+#figure(
+  image("figures/asy-18.pdf"),
+  caption: [asy-18]
+)
+#line()
+```asymptote
+size(8cm,0);
+pair A,B,C;
+A=(0,0);B=(1,0);C=(2,0);
+draw(A,8bp+black);
+draw(B,8bp+blue);
+draw(C,linewidth(8bp));
+```
+#figure(
+  image("figures/asy-19.pdf"),
+  caption: [asy-19]
+)
+#line()
+```asymptote
+unitsize(3cm);
+pair A=(0,0), B=(1,0), C=(0,1);
+path trig;
+trig=A--B--C--cycle;
+draw(trig);
+dot(trig,linewidth(8bp));
+dot(shift(3,0)*trig,red+8bp);
+```
+#figure(
+  image("figures/asy-20.pdf"), caption: [asy-20]
+)
+#line()
+```asymptote
+size(6cm,6cm);
+pair A, B, C;
+A=(0,0); B=(1,0); C=(0,1);
+draw(A--B--C--cycle);
+draw (midpoint(A--B) -- C);
+draw (B+0.5*(C-B) -- A);
+draw (interp(A,C,0.5) -- B);
+```
+#figure(
+  image("figures/asy-21.pdf"), caption: [asy-21]
+)
+#line()
+```asymptote
+size(6cm,6cm);
+pair A, B, C;
+A=(0,0); B=(1,0); C=(0,1);
+draw(A--B--C--cycle);
+draw (midpoint(A--B) -- C);
+draw (B+0.5*(C-B) -- A);
+draw (interp(A,C,0.5) -- B);
+dot(A/3 + B/3 + C/3);
+```
+#figure(
+  image("figures/asy-22.pdf"), caption: [asy-22]
+)
+#line()
+```asymptote
+size(6cm,0);
+pair A=(0,0), B=(1,0), C=(0,1);
+draw(A--B--C--cycle);
+draw(A--B,linewidth(4bp));
+```
+#figure(
+  image("figures/asy-23.pdf"), caption: [asy-23]
+)
+#line()
+```asymptote
+size(6cm,0);
+pair A=(0,0), B=(1,0), C=(0,1);
+draw(A--B--C--cycle);
+draw(A--B,(red+green));
+```
+#figure(
+  image("figures/asy-24.pdf"), caption: [asy-24]
+)
+#line()
+```asymptote
+size(6cm,0);
+pair A=(0,0), B=(1,0), C=(0,1);
+draw(A--B, 0.8white+6bp);
+draw(A--C, 0.6white+6bp);
+draw(B--C, 0.4white+6bp);
+draw(A--B--C--cycle, yellow);
+```
+#figure(
+  image("figures/asy-25.pdf"), caption: [asy-25]
+)
+#line()
+```asymptote
+size(8cm,0);
+path p1=(0,0)--(1,1);
+path p2=(2,0)--(3,1);
+draw(p1,linewidth(8mm));
+draw(p2,linewidth(8mm));
+draw(p1--p2, 4mm+0.8green);
+draw(reverse(p1)--p2, 2mm+.8red);
+```
+#figure(
+  image("figures/asy-26.pdf"), caption: [asy-26]
+)
+#line()
+```asymptote
+size(8cm,0);
+pair A=(0,0), B=(1,0);
+dot("$A$",A,N);
+dot("$B$",B,N);
+draw(interp(A,B,-0.5)--interp(A,B,1.25));
+```
+#figure(
+  image("figures/asy-27.pdf"), caption: [asy-27]
+)
+#line()
+```asymptote
+unitsize(cm);
+path line=(0,0)--(6,0);
+draw(line,solid);
+draw(shift(0,-1)*line,dotted);
+draw(shift(0,-2)*line,dashed);
+draw(shift(0,-3)*line,longdashed);
+draw(shift(0,-4)*line,dashdotted);
+draw(shift(0,-5)*line,longdashdotted);
+```
+#figure(
+  image("figures/asy-28.pdf"), caption: [asy-28]
+)
+#line()
+```asymptote
+unitsize(1cm);
+path line=(0,0)--(6,0);
+pen my_pen=linetype("24 8 8 8");
+draw(line,linetype("24 8 8 8"));
+draw(shift(0,-1)*line,my_pen+0.8red);
+draw(shift(0,-2)*line,my_pen+0.7green+4bp);
+draw(shift(0,-3)*line,linetype("24 8 8 8",false)+0.7blue+4bp);
+draw(shift(0,-4)*line,linetype("24 8 8 8",true,false)+4bp);
+draw(shift(0,-5)*line,linetype("24 8 8 8",false,false)+0.5red+blue+4bp);
+```
+#figure(
+  image("figures/asy-29.pdf"), caption: [asy-29]
+)
+#line()
+```asymptote
+size(8cm,0);
+transform T=shift(0,-0.125);
+path g=(0,0)--(1,0);
+int i=-1;
+draw(T^(++i)*g, Arrows());
+draw(T^(++i)*g, 0.8*green, Arrows(SimpleHead));
+draw(T^(++i)*g, 0.8*red, Arrows(SimpleHead,size=5mm));
+draw(T^(++i)*g, Arrows(HookHead));
+draw(T^(++i)*g, 0.8*green, Arrows(HookHead,size=5mm));
+draw(T^(++i)*g, 0.8*red, Arrows(HookHead(barb=20),size=5mm));
+draw(T^(++i)*g, 2mm+0.8*blue, Arrows(HookHead(dir=60),size=5mm, Fill));
+draw(T^(++i)*g, 0.8*yellow, Arrows(HookHead(barb=-10,dir=40),size=5mm));
+draw(T^(++i)*g, Arrows(TeXHead));
+draw(T^(++i)*g, 0.8*green, Arrows(TeXHead,size=5bp));
+draw(T^(++i)*g, 5bp+0.8*red, Arrows(TeXHead));
+```
+#figure(
+  image("figures/asy-30.pdf"), caption: [asy-30]
+)
+#line()
+```asymptote
+path line=(0,0)--(5cm,0);
+draw(line,Arrow);
+draw(shift(0,-1cm)*line, BeginArrow);
+draw(shift(0,-2cm)*line, MidArrow);
+draw(shift(0,-3cm)*line, Arrows);
+draw(shift(0,-4cm)*line, linewidth(3bp), Arrow(20bp));
+draw(shift(0,-5cm)*line, linewidth(3bp), BeginArrow(20bp));
+draw(shift(0,-6cm)*line, linewidth(3bp), MidArrow(20bp));
+draw(shift(0,-7cm)*line, linewidth(3bp), Arrows(20bp));
+```
+#figure(
+  image("figures/asy-31.pdf"), caption: [asy-31]
+)
+#line()
+```asymptote
+path line=(0,0)--(5cm,0);
+DefaultHead=HookHead;
+draw(shift(6cm,0)*line,Arrow());
+draw(shift(6cm,-1cm)*line, BeginArrow());
+draw(shift(6cm,-2cm)*line, MidArrow());
+draw(shift(6cm,-3cm)*line, Arrows());
+draw(shift(6cm,-4cm)*line, linewidth(3bp), Arrow(20bp));
+draw(shift(6cm,-5cm)*line, linewidth(3bp), BeginArrow(20bp));
+draw(shift(6cm,-6cm)*line, linewidth(3bp), MidArrow(20bp));
+draw(shift(6cm,-7cm)*line, linewidth(3bp), Arrows(20bp));
+```
+#figure(
+  image("figures/asy-32.pdf"), caption: [asy-32]
+)
+#line()
+```asymptote
+path line=(0,0)--(5cm,0);
+DefaultHead=SimpleHead;
+draw(shift(6cm,0)*line,Arrow());
+draw(shift(6cm,-1cm)*line, BeginArrow());
+draw(shift(6cm,-2cm)*line, MidArrow());
+draw(shift(6cm,-3cm)*line, Arrows());
+draw(shift(6cm,-4cm)*line, linewidth(3bp), Arrow(20bp));
+draw(shift(6cm,-5cm)*line, linewidth(3bp), BeginArrow(20bp));
+draw(shift(6cm,-6cm)*line, linewidth(3bp), MidArrow(20bp));
+draw(shift(6cm,-7cm)*line, linewidth(3bp), Arrows(20bp));
+```
+#figure(
+  image("figures/asy-33.pdf"), caption: [asy-33]
+)
+#line()
+```asymptote
+path line=(0,0)--(5cm,0);
+DefaultHead=TeXHead;
+draw(shift(6cm,0)*line,Arrow());
+draw(shift(6cm,-1cm)*line, BeginArrow());
+draw(shift(6cm,-2cm)*line, MidArrow());
+draw(shift(6cm,-3cm)*line, Arrows());
+draw(shift(6cm,-4cm)*line, linewidth(bp), Arrow());
+draw(shift(6cm,-5cm)*line, linewidth(2bp), BeginArrow(5bp));
+draw(shift(6cm,-6cm)*line, linewidth(2bp), MidArrow(5bp));
+draw(shift(6cm,-7cm)*line, linewidth(2bp), Arrows(5bp));
+```
+#figure(
+  image("figures/asy-34.pdf"), caption: [asy-34]
+)
+#line()
+```asymptote
+path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
+draw(line,ArcArrow);
+draw(shift(0,-2cm)*line,BeginArcArrow);
+draw(shift(0,-4cm)*line,MidArcArrow);
+draw(shift(0,-6cm)*line,ArcArrows);
+draw(shift(6cm,0)*line,3bp+0.8red,ArcArrow(20bp));
+draw(shift(6cm,-2cm)*line,3bp+0.8red,BeginArcArrow(20bp));
+draw(shift(6cm,-4cm)*line,3bp+0.8red,MidArcArrow(20bp));
+draw(shift(6cm,-6cm)*line,3bp+0.8red,ArcArrows(20bp));
+```
+#figure(
+  image("figures/asy-35.pdf"), caption: [asy-35]
+)
+#line()
+```asymptote
+DefaultHead=HookHead;
+path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
+draw(line,ArcArrow());
+draw(shift(0,-2cm)*line,BeginArcArrow());
+draw(shift(0,-4cm)*line,MidArcArrow());
+draw(shift(0,-6cm)*line,ArcArrows());
+draw(shift(6cm,0)*line,3bp+0.8red,ArcArrow(20bp));
+draw(shift(6cm,-2cm)*line,3bp+0.8red,BeginArcArrow(20bp));
+draw(shift(6cm,-4cm)*line,3bp+0.8red,MidArcArrow(20bp));
+draw(shift(6cm,-6cm)*line,3bp+0.8red,ArcArrows(20bp));
+```
+#figure(
+  image("figures/asy-36.pdf"), caption: [asy-36]
+)
+#line()
+```asymptote
+DefaultHead=SimpleHead;
+path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
+draw(line,ArcArrow());
+draw(shift(0,-2cm)*line,BeginArcArrow());
+draw(shift(0,-4cm)*line,MidArcArrow());
+draw(shift(0,-6cm)*line,ArcArrows());
+draw(shift(6cm,0)*line,3bp+0.8red,ArcArrow(20bp));
+draw(shift(6cm,-2cm)*line,3bp+0.8red,BeginArcArrow(20bp));
+draw(shift(6cm,-4cm)*line,3bp+0.8red,MidArcArrow(20bp));
+draw(shift(6cm,-6cm)*line,3bp+0.8red,ArcArrows(20bp));
+```
+#figure(
+  image("figures/asy-37.pdf"), caption: [asy-37]
+)
+#line()
+```asymptote
+DefaultHead=TeXHead;
+path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
+draw(line,Arrow());
+draw(shift(0,-2cm)*line,BeginArrow());
+draw(shift(0,-4cm)*line,MidArrow());
+draw(shift(0,-6cm)*line,Arrows());
+draw(shift(6cm,0)*line,3bp+0.8red,Arrow(5bp));
+draw(shift(6cm,-2cm)*line,3bp+0.8red,BeginArrow(5bp));
+draw(shift(6cm,-4cm)*line,3bp+0.8red,MidArrow(5bp));
+draw(shift(6cm,-6cm)*line,3bp+0.8red,Arrows(5bp));
+```
+#figure(
+  image("figures/asy-38.pdf"), caption: [asy-38]
+)
+#line()
+```asymptote
+path line=(0,0)--(5cm,0);
+draw(line,Arrow(20bp,filltype=NoFill));
+draw(shift(0,-1cm)*line,Arrow(20bp,filltype=FillDraw(0.8red)));
+draw(shift(0,-2cm)*line,Arrow(20bp,filltype=Fill(0.8red)));
+draw(shift(0,-3cm)*line,Arrows(filltype=FillDraw(-10,10,0.8red)));
+```
+#figure(
+  image("figures/asy-39.pdf"), caption: [asy-39]
+)
+#line()
+```asymptote
+DefaultHead=HookHead;
+path line=(0,0)--(5cm,0);
+draw(line,Arrow(20bp,filltype=NoFill));
+draw(shift(0,-1cm)*line,Arrow(20bp,filltype=FillDraw(0.8red)));
+draw(shift(0,-2cm)*line,Arrow(20bp,filltype=Fill(0.8red)));
+draw(shift(0,-3cm)*line,Arrows(filltype=FillDraw(-10,10,.8red)));
+```
+#figure(image("figures/asy-40.pdf"), caption: [asy-40])
+#line()
+```asymptote
+DefaultHead=TeXHead;
+path line=(0,0)--(5cm,0);
+draw(line,Arrow(10bp,filltype=NoFill));
+draw(shift(0,-2cm)*line,Arrow(10bp,filltype=FillDraw(0.8red)));
+draw(shift(0,-4cm)*line,Arrow(10bp,filltype=Fill(0.8red)));
+draw(shift(0,-6cm)*line,Arrows(filltype=FillDraw(-10,10,0.8red)));
+```
+#figure(image("figures/asy-41.pdf"), caption: [asy-41])
+#line()
+```asymptote
+path line=(0,0)--(5cm,0);
+draw(line,linewidth(5bp),Arrow);
+draw(shift(0,-2cm)*line,linewidth(5bp),Arrow(30bp,10));
+draw(shift(0,-5cm)*line,linewidth(30bp),Arrow(20bp,50));
+draw(shift(0,-8cm)*line,linewidth(10bp),Arrow(20bp,50,filltype=NoFill));
+```
+#figure(image("figures/asy-42.pdf"), caption: [asy-42])
+#line()
+```asymptote
+size(5cm,0);
+path line=(0,0)--(5,0);
+draw(line,Arrow(20bp,position=0.75));
+draw(shift(0,-2)*line,Arrow(20bp,40,0.75,filltype=NoFill));
+position pos=BeginPoint;
+pos.position=0.75;
+draw(shift(0,-4)*line,BeginArrow(20bp,pos));
+draw(shift(0,-6)*line,BeginArrow(20bp,40,pos,filltype=NoFill));
+```
+#figure(image("figures/asy-43.pdf"), caption: [asy-43])
 #line()
