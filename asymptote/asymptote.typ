@@ -2,12 +2,12 @@
 #set text(
   font: ("Noto Sans", "Noto Color Emoji"),
   size: 15pt,
+  hyphenate: false,
 )
 #show math.equation: set text(font: "Noto Sans Math")
 
 #show raw: set text(
   font: "Noto Sans Mono",
-  // font: "Jetbrains Mono"
 )
 #set page(
   paper: "a4",
@@ -1070,14 +1070,14 @@ dot(Label("$B$"),(2cm,0),NE+N, blue+10pt);
 ```asymptote
 label(rotate(45) * scale(5) * "\textbf{Hello}");
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-75.pdf"), caption: [asy-75])
 #line()
 ```asymptote
 frame f;
 label(f,"\textbf{Hello}",yellow,Fill(black));
 add(scale(5)*rotate(45)*f);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-76.pdf"), caption: [asy-76])
 #line()
 ```asymptote
 frame f;
@@ -1085,20 +1085,24 @@ filldraw(scale(5cm)*unitsquare, black);
 label(f,"Hello", 0.8*red, Fill(white));
 add(rotate(45) * scale(5) * f, (2.5cm,2.5cm));
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-77.pdf"), caption: [asy-77])
 #line()
 ```asymptote
 label(scale(5)*"\textbf{Cancel}");
-draw((min(currentpicture).x,0)--(max(currentpicture).x,0), 6bp + red * 0.8);
+pair a = min(currentpicture);
+pair b = max(currentpicture);
+draw((a.x,0)--(b.x,0), 6bp + red * 0.8);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-78.pdf"), caption: [asy-78])
 #line()
 ```asymptote
 label(scale(6)*"\textbf{Cancel}");
 layer();
-draw((min(currentpicture).x,0)--(max(currentpicture).x,0), 6bp + red * 0.8);
+pair a=min(currentpicture);
+pair b=max(currentpicture);
+draw((a.x,0)--(b.x,0), 6bp + blue * 0.8);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-79.pdf"), caption: [asy-79])
 #line()
 ```asymptote
 size(6cm,0);
