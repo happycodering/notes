@@ -1,0 +1,10 @@
+{
+    "asymptote": {
+        "command": [
+            "asy",
+            "-lsp",
+        ],
+        "enabled": true,
+        "selector": "source.asy",
+    }
+}

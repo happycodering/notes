@@ -43,8 +43,8 @@
 #show raw.where(block: true): block.with(
   fill: luma(95%),
   inset: 8pt,
-  stroke: 0.5pt + luma(80%),
-  radius: 3pt,
+  // stroke: 0.5pt + luma(80%),
+  // radius: 3pt,
 )
 #set figure(placement: none)
 #show figure: it => {
@@ -1105,109 +1105,118 @@ draw((a.x,0)--(b.x,0), 6bp + blue * 0.8);
 #figure(image("figures/asy-79.pdf"), caption: [asy-79])
 #line()
 ```asymptote
+pen dottedGreen = 4pt + ForestGreen + linetype(new real[] {0,2});
 size(6cm,0);
 path line1=(0,0)--(1,0);
 path line2=(0,0)--(1,1);
 pair bissec=dir(line1,line2);
-draw(line1); draw(line2);
-dot(bissec,linewidth(3bp));
-draw(-.5bissec--bissec,dotted);
-dot("$A$",(0,0),-bissec);
+draw(line1, 2pt+red);
+draw(line2, 2pt+blue);
+dot(bissec, 10bp+Tomato);
+draw(-0.5bissec--bissec, dottedGreen);
+dot(scale(2)*"$A$",(0,0),-bissec, 8pt+purple);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-80.pdf"), caption: [asy-80])
 #line()
 ```asymptote
 size(6cm,0);
-pair A=0, B=(1,0), C=(2,2);;
-draw(A--B--C--cycle);
-dot("$A$",A,dir(C--A,B--A));
-dot("$B$",B,dir(C--B,A--B));
-dot("$C$",C,dir(A--C,B--C));
+pair A=0, B=(1,0), C=(2,2);
+draw(A--B--C--cycle, 3pt+red);
+dot(scale(2)*"$A$",A,dir(C--A,B--A), 8pt+blue);
+dot(scale(2)*"$B$",B,dir(C--B,A--B), 8pt+blue);
+dot(scale(2)*"$C$",C,dir(A--C,B--C), 8pt+blue);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-81.pdf"), caption: [asy-81])
 #line()
 ```asymptote
 size(0,0);
 path line=(0,0)--(6cm,0);
-transform T=shift(0,-cm);
-draw("$A$",line);
-draw("$B$",T*line,dir(0));
-draw("$C$",T^2*line,N);
-draw(Label("$D$",fontsize(14pt)),T^3*line);
+transform T=shift(0,-1cm);
+draw("$A$",line, 2pt+red);
+draw("$B$",T*line,dir(0), 2pt+blue);
+draw("$C$",T^2*line,N, 2pt+ForestGreen);
+draw(Label("$D$",fontsize(18pt)+Purple),T^3*line, 2pt+Teal);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-82.pdf"), caption: [asy-82])
 #line()
 ```asymptote
 size(0,0);
 path line=(0,0)--(6cm,0);
-transform T=shift(0,-cm);
-draw(Label("A",align=Center,filltype=UnFill), line);
-draw(Label("B",UnFill), T*line, Center);
-draw(Label("C",align=Center,position=Relative(0.75),UnFill), T^2*line);
-draw(Label("D",position=Relative(0.25),UnFill), align=Center, T^3*line);
+transform T=shift(0,-1cm);
+draw(scale(2)*Label("A",align=Center,filltype=UnFill),
+  line, 2bp+red);
+draw(scale(2)*Label("B",UnFill), T*line, Center,
+  2pt+ForestGreen);
+draw(scale(2)*Label("C",align=Center,position=Relative(0.75),UnFill),
+  T^2*line, 4pt+Navy);
+draw(scale(2)*Label("D",position=Relative(0.25),UnFill),
+  align=Center, T^3*line, 3pt+Purple);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-83.pdf"), caption: [asy-83])
 #line()
 ```asymptote
 pair c=0;
 label("abc xyz ijk",c,Align,basealign);
-label("abc xyz ijk",c,Align,red);
+label("abc xyz ijk",c,Align, red);
 draw(c--(c+(2cm,0))); // This is the baseline.
-shipout((scale(3)*currentpicture.fit()));
+shipout((scale(4)*currentpicture.fit()));
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-84.pdf"), caption: [asy-84])
 #line()
 ```asymptote
 size(6cm,0);
 pair A=0, B=(1,0), C=(1,1);
-draw("$1$",A--B);
-draw("$1$",B--C);
-draw("$\sqrt{2}$",C--A);
+draw(scale(2)*"$1$",A--B, 4bp+red);
+draw(scale(2)*"$1$",B--C, 4bp+blue);
+draw(scale(2)*"$\sqrt{2}$",C--A, 4bp+ForestGreen);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-85.pdf"), caption: [asy-85])
 #line()
 ```asymptote
 size(6cm,0);
 pair A=0, B=(1,0), C=(1,1);
-draw("$1$",A--B);
-draw("$1$",B--C);
-// draw(rotate(dir(C--A))*"$\sqrt{2}$",C--A);
-draw(Label("$\sqrt{2}$",Rotate(-dir(C--A))),C--A);
+draw(scale(2)*"$1$",A--B, 4pt+red);
+draw(scale(2)*"$1$",B--C, 4pt+blue);
+draw(scale(2)*Label("$\sqrt{2}$",
+  Rotate(-dir(C--A))),C--A, 4pt+ForestGreen);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-86.pdf"), caption: [asy-86])
 #line()
 ```asymptote
 size(6cm,0);
 path g=(1,1)--(3,2);
-draw(Label("a text",Rotate(dir(g))), g);
-draw(Label("a text",red,Rotate(-dir(g)),align=I*dir(g)), g);
+draw(scale(2)*Label("a text", blue, Rotate(dir(g))), g, 4bp+red);
+draw(scale(2)*Label("a text", Purple,
+  Rotate(-dir(g)),align=I*dir(g)), g);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-87.pdf"), caption: [asy-87])
 #line()
 ```asymptote
 size(0,0);
-pair A=(0,0), B=(4cm,0);
+pair A=(0,0), B=(6cm,0);
 path line=A--B;
-transform TD=shift(0,-cm);
-transform TR=shift(2.5cm,0);
+transform TD=shift(0,-1cm);
 defaultpen(linewidth(3bp));
-draw("$AB$",line,.8red,Arrows(3mm));
-draw("$A$",A,N); draw("$B$",B,N);
-draw("$AB$",TD*line,.8red,Arrows(3mm),PenMargins);
-draw("$A$",TD*A,N); draw("$B$",TD*B,N);
-draw("$AB$",TD^2*line,.8red,Arrows(3mm),DotMargins);
-dot("$A$",TD^2*A,dotfactor*NW); dot("$B$",TD^2*B,dotfactor*NE);
+draw("$AB$",line, 0.8red, Arrows(3mm));
+draw("$A$", A, N);
+draw("$B$", B, N);
+draw("$AB$", TD*line, 0.8ForestGreen, Arrows(3mm), PenMargins);
+draw("$A$", TD*A, N);
+draw("$B$", TD*B, N);
+draw("$AB$", TD^2*line, 0.8blue, Arrows(3mm), DotMargins);
+dot("$A$", TD^2*A, dotfactor*NW, Purple);
+dot("$B$", TD^2*B, dotfactor*NE, Teal);
 margin BigMargins=Margin(2,2);
-draw("$AB$",TD^3*line,.8red,Arrows(3mm),BigMargins);
-draw("$A$",TD^3*A,N); draw("$B$",TD^3*B,N);
+draw("$AB$", TD^3*line, 0.8red, Arrows(3mm), BigMargins);
+draw("$A$", TD^3*A, N);
+draw("$B$", TD^3*B, N);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-88.pdf"), caption: [asy-88])
 #line()
 ```asymptote
-//From documentation of Asymptote
 size(6cm, 0);
-void distance(picture pic=currentpicture, pair A, pair B, Label L="", real n=0, pen p=currentpen)
-{
+void distance(picture pic=currentpicture, pair A, pair B,
+  Label L="", real n=0, pen p=currentpen) {
   real d=3mm;
   guide g=A--B;
   transform T=shift(-n*d*unit(B-A)*I);
@@ -1221,25 +1230,27 @@ void distance(picture pic=currentpicture, pair A, pair B, Label L="", real n=0, 
   pic.addBox(min(g), max(g), T*min(p), T*max(p));
 }
 pair A=(0, 0), B=(3, 3);
-dot(A);
-dot(B);
-distance(A, B, Label("$\ell$", Rotate(dir(A--B))), 1);
+dot(A, 8pt+red);
+dot(B, 8pt+blue);
+distance(A, B, Label("$\ell$", Rotate(dir(A--B))), 1.5);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-89.pdf"), caption: [asy-89])
 #line()
 ```asymptote
-// Author: John Bowman
-size(0, 100);
+size(0, 4cm);
 real margin=2mm;
 pair z1=(0,1);
 pair z0=(0,0);
-object label1=draw("small box",box,z1,margin);
-object label0=draw("LARGE ELLIPSE",ellipse,z0,margin);
+object label1=draw(Label(scale(1.5)*"small box", red),
+  box, z1, margin, 3bp+red);
+object label0=draw(Label(scale(1.5)*"LARGE ELLIPSE", blue),
+  ellipse, z0, margin, 3bp+blue);
 add(new void(frame f, transform t) {
-    draw(f,point(label1,S,t)--point(label0,N,t));
+    draw(f,point(label1,S,t)--point(label0,N,t),
+      4pt+ForestGreen);
   });
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-90.pdf"), caption: [asy-90])
 #line()
 ```asymptote
 size(0,0);
