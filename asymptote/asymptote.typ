@@ -41,7 +41,7 @@
   ),
 )
 #show raw.where(block: true): block.with(
-  fill: luma(95%),
+  fill: luma(90%),
   inset: 8pt,
   // stroke: 0.5pt + luma(80%),
   // radius: 3pt,
@@ -64,6 +64,13 @@
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
+
+#page(
+  margin: (x: 0cm, y: 0cm),
+)[
+  #image("figures/asymptote-cover.pdf")
+]
+#pagebreak()
 #page()[
   #v(8cm)
   #align(center)[
@@ -77,6 +84,7 @@
 ]
 #outline(title: none)
 #pagebreak()
+
 #set page(
   header-ascent: 20pt,
   header: context {
@@ -180,18 +188,16 @@
 settings.tex = "lualatex";
 settings.outformat = "pdf";
 settings.prc = false;
-
-texpreamble("
-\usepackage{fontspec}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{unicode-math}
-\setmainfont{Noto Sans}
-\setsansfont{Noto Sans}
-\setmathfont[Path=fonts/,
-Extension=.ttf,
-]{NotoSansMath-Regular}
-");
+texpreamble("\usepackage{fontspec}");
+texpreamble("\usepackage{amsmath}");
+texpreamble("\usepackage{amsthm}");
+texpreamble("\usepackage{xcolor}");
+texpreamble("\usepackage{unicode-math}");
+texpreamble("\setmainfont{Noto Sans}");
+texpreamble("\setsansfont{Noto Sans}");
+texpreamble("\setmathfont[Path=../fonts/,Extension=.ttf,]
+  {NotoSansMath-Regular}");
+import x11colors;
 
 unitsize(2cm);
 pair A, B, C, D;
@@ -1254,56 +1260,58 @@ add(new void(frame f, transform t) {
 #line()
 ```asymptote
 size(0,0);
+defaultpen(1bp+blue);
 pair A=0;
-dot(A);
+dot(A, 5pt+red);
 arrow("1",A,NE, 3cm);
 arrow("2",A,SE, 2cm);
-arrow("3",A,SW, 2.5cm, Margin(3,0));
+arrow("3",A,SW, 2.5cm, Margin(3,2));
 arrow("4",A,NW, 2.5cm,N);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-91.pdf"), caption: [asy-91])
 #line()
 ```asymptote
 size(6cm,0);
-draw(E--N--W--S--cycle,.5red+1mm);
-draw(E..N..W..S..cycle);
-dot(E..N..W..S..cycle,red);
+draw(E--N--W--S--cycle, red+1mm);
+draw(E..N..W..S..cycle, 2bp+ForestGreen);
+dot(E..N..W..S..cycle, 8bp+blue);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-92.pdf"), caption: [asy-92])
 #line()
 ```asymptote
 size(0,0);
 pair O=0;
-draw(circle(O,4cm));
-dot(circle(O,4cm), red+4bp);
+draw(circle(O,4cm), 3bp+blue);
+dot(circle(O,4cm), 8bp+red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-93.pdf"), caption: [asy-93])
 #line()
 ```asymptote
 size(6cm);
-draw(unitcircle, dot);
+draw(unitcircle, 2bp+blue, dot(10pt+red));
 dotfactor*=3;
-draw(shift(-0.5,-0.5)*unitsquare, dot(blue,Fill(red)));
+draw(shift(-0.5,-0.5)*unitsquare, 4bp+ForestGreen,
+  dot(blue,Fill(red)));
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-94.pdf"), caption: [asy-94])
 #line()
 ```asymptote
 size(0,0);
-real R=4cm;
-draw(scale(R)*unitcircle);
-dot((0,0),linewidth(4bp));
-dot((R*cos(pi/6),R*sin(pi/6)),red+8bp);
+real R=3cm;
+draw(scale(R)*unitcircle, 4bp+blue);
+dot((0,0), 10bp+Teal);
+dot((R*cos(pi/6),R*sin(pi/6)), 12bp+red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-95.pdf"), caption: [asy-95])
 #line()
 ```asymptote
-size(6cm,0);
+size(5cm,0);
 import graph;
 path PerfectCircle=Circle((0,0),1);
-draw(PerfectCircle,linewidth(2mm));
-dot(PerfectCircle,0.8red);
+draw(PerfectCircle, linewidth(4mm));
+dot(PerfectCircle, red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-96.pdf"), caption: [asy-96])
 #line()
 ```asymptote
 size(6cm,0);
