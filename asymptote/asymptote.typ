@@ -68,7 +68,7 @@
 #page(
   margin: (x: 0cm, y: 0cm),
 )[
-  #image("figures/asymptote-cover.pdf")
+  #image("asymptote-cover.pdf")
 ]
 #pagebreak()
 #page()[
