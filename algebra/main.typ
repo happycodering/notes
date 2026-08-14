@@ -1,11 +1,6 @@
 #import "components.typ": *
 #set document(title: [Algebra])
 
-#let base-size = 15pt
-#let h1-scale = 1.6
-#let h2-scale = 1.2
-#let h3-scale = 1.1
-
 #set text(
   font: ("Noto Sans", "Noto Color Emoji"),
   size: base-size,
@@ -74,7 +69,6 @@
   it
 }
 
-
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
@@ -98,11 +92,12 @@
   ]
 ]
 
-#align(center)[
-  #text(size: 24pt, weight: "bold")[Contents]
+#page()[
+  #align(center)[
+    #text(size: 24pt, weight: "bold")[Contents]
+  ]
+  #outline(depth: 2, title: none)
 ]
-#outline(depth: 2, title: none)
-#pagebreak()
 
 #counter(page).update(1)
 

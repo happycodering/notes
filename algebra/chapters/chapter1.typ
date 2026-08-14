@@ -211,7 +211,7 @@ The arrow to the right means that the whole numbers continue indefinitely.
 *Tables* are often used to organize and display facts that contain numbers.
 
 #table(
-  columns: (1fr, 1fr, 1fr),
+  columns: 3,
   align: (center, center, right),
   stroke: 1pt + luma(50%),
   inset: 8pt,
@@ -233,19 +233,178 @@ The *sum* of two numbers is their *total*.
 The numbers being added are called *addends*,
 and the process of finding their sum is called *addition*.
 
-#grid(
-  columns: (auto, auto, auto, auto, auto),
-  column-gutter: 0.5em,
-  row-gutter: 1.5em,
-  align: center,
-  $2$, $+$, $4$, $=$, $6$,
-  [#scale(y: 200%)[↑]], [], [#scale(y: 200%)[↑]], [], [#scale(y: 200%)[↑]],
-  [addend], [], [addend], [], [sum],
-)
+#align(center)[
+  #block(
+    breakable: false,
+  )[
+    #table(
+      columns: 5,
+      align: center,
+      inset: (x: 2pt, y: 0pt),
+      stroke: 0pt,
+      $2$, $+$, $4$, $=$, $6$,
+      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      [],
+      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      [],
+      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+
+      [#text(fill: blue)[addend]], [], [#text(fill: blue)[addend]], [], [#text(fill: blue)[sum]],
+    )
+  ]
+]
 
 To add whole numbers, we add the digits in the ones place, then the tens place,
 then the hundreds place, and so on.
 
+#example()[
+  Line up numbers vertically so that the place values correspond. Then
+  add digits in corresponding place values, starting with the ones place.
+
+  #align(center)[
+    #block(breakable: false)[
+      #table(
+        columns: 5,
+        align: center,
+        stroke: none,
+        table.hline(stroke: 0.5pt, start: 0, y: 2),
+        [], [$2$], [$2$], [$3$], [$6$],
+        [$+$], [], [$1$], [$6$], [$0$],
+        [], [$1$], [$3$], [$9$], [$6$],
+      )
+    ]
+  ]
+]
+
+
+When the sum of digits in corresponding place values is more than 9, *carrying* is
+necessary.
+
+#example()[
+  To add $365$ + $89$, add the ones-place digits first.
+
+  #block(breakable: false)[
+    #table(
+      columns: 5,
+      align: left,
+      stroke: none,
+      table.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
+      [], [], [#text(fill: blue)[$1$]], [], [],
+      [], [$3$], [$6$], [$5$], [],
+      [$+$], [], [$8$], [$9$],
+      [#text(size: base-size * 80%)[$5$ ones $+$ $9$ ones $=$ $14$ ones or
+        $1$ ten $+$ $4$ ones]],
+      [], [], [], [#text(fill: blue)[$4$]],
+      [#text(size: base-size * 80%)[Write the $4$ ones in the ones place and
+        carry the $1$ ten to the tens place.]],
+    )
+  ]
+
+  Next, add the tens-place digits.
+
+  #block(breakable: false)[
+    #table(
+      columns: 5,
+      align: left,
+      stroke: none,
+      table.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
+      [], [#text(fill: blue)[$1$]], [#text(fill: blue)[$1$]], [], [],
+      [], [$3$], [$6$], [$5$], [],
+      [$+$],
+      [],
+      [$8$],
+      [$9$],
+      [#text(size: base-size * 80%)[ $1$ ten $+$ $6$ tens $+$
+        $8$ tens $=$ $15$ tens or $1$ hundred $+$ $5$ tens]],
+      [],
+      [],
+      [#text(fill: blue)[$5$]],
+      [$4$],
+      [#text(size: base-size * 80%)[Write the $5$ tens in the tens place and
+        carry the $1$ hundred to the hundreds place.]],
+    )
+  ]
+
+  Next, add the hundreds-place digits.
+
+  #block(breakable: false)[
+    #table(
+      columns: 5,
+      align: left,
+      stroke: none,
+      table.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
+      [], [#text(fill: blue)[$1$]], [#text(fill: blue)[$1$]], [], [],
+      [], [$3$], [$6$], [$5$], [],
+      [$+$],
+      [],
+      [$8$],
+      [$9$],
+      [#text(size: base-size * 80%)[$1$ hundred $+$ $3$ hundreds $=$ $4$ hundreds]],
+      [],
+      [#text(fill: blue)[$4$]],
+      [$5$],
+      [$4$],
+      [#text(size: base-size * 80%)[Write the $4$ hundreds in the hundreds place.]],
+    )
+  ]
+]
+
+#note(title: [Addition Property of $0$])[
+  The sum of $0$ and any number is that number. For example,
+  $
+    7+0=7\
+    0+7=7
+  $
+]
+
+#note(title: [Commutative Property of Addition])[
+  Changing the *order* of two addends does not change their sum. For example,
+  $
+    2+3=5 quad "and" quad 3+2=5
+  $
+]
+
+#note(title: [Associative Property of Addition])[
+  Changing the *grouping* of addends does not change their sum. For example,
+  $
+    3+(5+7)=3+12=15 quad "and" quad (3+5)+7=8+7=15
+  $
+]
+
+When adding several numbers, it is often helpful to look for two or three
+numbers whose sum is $10$, $20$, and so on.
+
+=== Subtracting Whole Numbers
+
+*Subtraction* is finding the *difference* of two numbers.
+
+#align(center)[
+  #block(
+    breakable: false,
+    inset: 0pt,
+  )[
+    #table(
+      columns: 5,
+      align: center,
+      inset: (x: 2pt, y: 0pt),
+      stroke: 0pt,
+      $8$, $-$, $5$, $=$, $3$,
+      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      [],
+      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      [],
+      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+
+      [#text(fill: blue)[minuend]], [], [#text(fill: blue)[subtrahend]], [], [#text(fill: blue)[difference]],
+    )
+  ]
+]
+
+Subtraction is defined in terms of addition.
+
+$
+  8 - 3 = 5 quad "because" quad 5 + 3 = 8
+$
 
 = Integers and Solving Equations
 

@@ -1,10 +1,17 @@
+#let base-size = 13pt
+#let h1-scale = 1.6
+#let h2-scale = 1.2
+#let h3-scale = 1.1
+
 #let note(title: none, body) = block(
-  fill: yellow.lighten(85%),
-  stroke: 1.2pt + yellow.darken(30%),
-  radius: 3pt,
+  fill: yellow.lighten(80%),
+  stroke: (
+    left: 3pt + yellow.darken(30%),
+  ),
   inset: 10pt,
-  breakable: false,
+  breakable: true,
   width: 100%,
+  radius: 3pt,
 )[
   #if title == none {
     body
@@ -123,6 +130,8 @@
         text(size: 12pt)[
           #grid(
             columns: (auto, 1fr, auto),
+            stroke: (bottom: 1pt),
+            inset: (bottom: 7pt),
             align(left)[#upper[#header-text]], [], page-number,
           )
         ]
