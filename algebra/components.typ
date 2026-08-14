@@ -18,19 +18,23 @@
 ]
 
 #let example(body) = block(
-  fill: purple.lighten(85%),
-  stroke: 1.2pt + purple.darken(30%),
-  radius: 3pt,
+  fill: purple.lighten(90%),
+  stroke: (
+    left: 3pt + purple.darken(30%),
+  ),
   inset: 10pt,
-  breakable: false,
+  breakable: true,
   width: 100%,
+  radius: 3pt,
 )[
-  #stack(
-    spacing: 1em,
-    text(weight: "bold", fill: purple.darken(70%))[Example],
-    body,
-  )
+  #box()[
+    #text(weight: "bold", fill: purple.darken(50%))[Example]
+  ]
+  #h(6pt)
+  #body
+  #align(right)[#sym.qed]
 ]
+
 #let main-content(body) = {
   set page(
     header-ascent: 20pt,

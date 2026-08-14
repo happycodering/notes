@@ -41,10 +41,10 @@
   ),
 )
 #show raw.where(block: true): block.with(
-  fill: luma(90%),
+  fill: luma(95%),
   inset: 8pt,
-  // stroke: 0.5pt + luma(80%),
-  // radius: 3pt,
+  stroke: (left: 3pt + luma(50%)),
+  radius: 3pt,
 )
 #set figure(placement: none)
 #show figure: it => {
@@ -213,6 +213,7 @@ draw(C--D);
   caption: [asy-1],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(5cm,0);
 pair A, B, C, D;
@@ -228,6 +229,7 @@ draw(C--D);
   caption: [asy-2],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 pair A, B, C, D;
@@ -243,6 +245,7 @@ draw(C--D);
   caption: [asy-3],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(5cm, 3cm);
 pair A, B, C, D;
@@ -258,6 +261,7 @@ draw(C--D);
   caption: [asy-4],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,2.5cm);
 pair A, B, C, D;
@@ -273,6 +277,7 @@ draw(C--D);
   caption: [asy-5],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(10cm, 2.5cm, false); // width, height, and whether to preserve
 // aspect ratio
@@ -289,6 +294,7 @@ draw(C--D);
   caption: [asy-6],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(3cm, 10cm, false);
 pair A, B, C, D;
@@ -304,6 +310,7 @@ draw(C--D);
   caption: [asy-7],
 )
 #line()
+#pagebreak()
 ```asymptote
 pair A, B, C, D;
 A=(0,0);
@@ -318,6 +325,7 @@ draw(C--D);
   caption: [asy-8],
 )
 #line()
+#pagebreak()
 ```asymptote
 unitsize(1cm);
 pair A, B, C, D;
@@ -333,6 +341,7 @@ draw(C--D);
   caption: [asy-9],
 )
 #line()
+#pagebreak()
 ```asymptote
 unitsize(x=2cm, y=1cm);
 pair A, B, C, D;
@@ -348,6 +357,7 @@ draw(C--D);
   caption: [asy-10],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 draw(scale(4)*unitcircle);
@@ -361,6 +371,7 @@ shipout(bbox(Fill(lightgrey)));
   caption: [asy-11],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 path p=(0,0)--(1,0);
@@ -374,6 +385,7 @@ add(object, (0,-40));
   caption: [asy-12],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 path p=(0,0)--(1,0);
@@ -387,6 +399,7 @@ add(object,(0,-40)); // Adds truesize object to currentpicture
   caption: [asy-13],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,6cm);
 pair A=(0,0), B=(1,0), C=(0,1);
@@ -397,6 +410,7 @@ draw (A--B--C);
   caption: [asy-14],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm, 6cm);
 pair A=(0,0), B=(1,0), C=(0,1);
@@ -407,6 +421,7 @@ draw (A--B--C--cycle);
   caption: [asy-15],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm, 6cm);
 pair [] A;
@@ -423,6 +438,7 @@ draw (A[1]--A[3]);
   caption: [asy-16],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,6cm);
 draw(unitsquare);
@@ -435,6 +451,7 @@ draw((1,0)--(0,1));
   caption: [asy-17],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,3cm,false);
 draw(unitsquare);
@@ -447,6 +464,7 @@ draw((1,0)--(0,1));
   caption: [asy-18],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair A,B,C;
@@ -460,6 +478,7 @@ draw(C,linewidth(8bp));
   caption: [asy-19],
 )
 #line()
+#pagebreak()
 ```asymptote
 unitsize(3cm);
 pair A=(0,0), B=(1,0), C=(0,1);
@@ -474,6 +493,7 @@ dot(shift(3,0)*trig,red+8bp);
   caption: [asy-20],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,6cm);
 pair A, B, C;
@@ -488,6 +508,7 @@ draw (interp(A,C,0.5) -- B);
   caption: [asy-21],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,6cm);
 pair A, B, C;
@@ -503,6 +524,7 @@ dot(A/3 + B/3 + C/3);
   caption: [asy-22],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=(0,0), B=(1,0), C=(0,1);
@@ -514,6 +536,7 @@ draw(A--B,linewidth(4bp));
   caption: [asy-23],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=(0,0), B=(1,0), C=(0,1);
@@ -525,6 +548,7 @@ draw(A--B,(red+green));
   caption: [asy-24],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=(0,0), B=(1,0), C=(0,1);
@@ -538,6 +562,7 @@ draw(A--B--C--cycle, yellow);
   caption: [asy-25],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 path p1=(0,0)--(1,1);
@@ -552,6 +577,7 @@ draw(reverse(p1)--p2, 2mm+.8red);
   caption: [asy-26],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair A=(0,0), B=(1,0);
@@ -564,6 +590,7 @@ draw(interp(A,B,-0.5)--interp(A,B,1.25));
   caption: [asy-27],
 )
 #line()
+#pagebreak()
 ```asymptote
 unitsize(cm);
 path line=(0,0)--(6,0);
@@ -579,6 +606,7 @@ draw(shift(0,-5)*line,longdashdotted);
   caption: [asy-28],
 )
 #line()
+#pagebreak()
 ```asymptote
 unitsize(1cm);
 path line=(0,0)--(6,0);
@@ -595,6 +623,7 @@ draw(shift(0,-5)*line,linetype("24 8 8 8",false,false)+0.5red+blue+4bp);
   caption: [asy-29],
 )
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 transform T=shift(0,-0.125);
@@ -617,6 +646,7 @@ draw(T^(++i)*g, 5bp+0.8*red, Arrows(TeXHead));
   caption: [asy-30],
 )
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 draw(line,Arrow);
@@ -633,6 +663,7 @@ draw(shift(0,-7cm)*line, linewidth(3bp), Arrows(20bp));
   caption: [asy-31],
 )
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 DefaultHead=HookHead;
@@ -650,6 +681,7 @@ draw(shift(6cm,-7cm)*line, linewidth(3bp), Arrows(20bp));
   caption: [asy-32],
 )
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 DefaultHead=SimpleHead;
@@ -667,6 +699,7 @@ draw(shift(6cm,-7cm)*line, linewidth(3bp), Arrows(20bp));
   caption: [asy-33],
 )
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 DefaultHead=TeXHead;
@@ -684,6 +717,7 @@ draw(shift(6cm,-7cm)*line, linewidth(2bp), Arrows(5bp));
   caption: [asy-34],
 )
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
 draw(line,ArcArrow);
@@ -700,6 +734,7 @@ draw(shift(6cm,-6cm)*line,3bp+0.8red,ArcArrows(20bp));
   caption: [asy-35],
 )
 #line()
+#pagebreak()
 ```asymptote
 DefaultHead=HookHead;
 path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
@@ -717,6 +752,7 @@ draw(shift(6cm,-6cm)*line,3bp+0.8red,ArcArrows(20bp));
   caption: [asy-36],
 )
 #line()
+#pagebreak()
 ```asymptote
 DefaultHead=SimpleHead;
 path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
@@ -734,6 +770,7 @@ draw(shift(6cm,-6cm)*line,3bp+0.8red,ArcArrows(20bp));
   caption: [asy-37],
 )
 #line()
+#pagebreak()
 ```asymptote
 DefaultHead=TeXHead;
 path line=(0,0)..(2.5cm,2.5cm)..(5cm,0);
@@ -751,6 +788,7 @@ draw(shift(6cm,-6cm)*line,3bp+0.8red,Arrows(5bp));
   caption: [asy-38],
 )
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 draw(line,Arrow(20bp,filltype=NoFill));
@@ -763,6 +801,7 @@ draw(shift(0,-3cm)*line,Arrows(filltype=FillDraw(-10,10,0.8red)));
   caption: [asy-39],
 )
 #line()
+#pagebreak()
 ```asymptote
 DefaultHead=HookHead;
 path line=(0,0)--(5cm,0);
@@ -773,6 +812,7 @@ draw(shift(0,-3cm)*line,Arrows(filltype=FillDraw(-10,10,.8red)));
 ```
 #figure(image("figures/asy-40.pdf"), caption: [asy-40])
 #line()
+#pagebreak()
 ```asymptote
 DefaultHead=TeXHead;
 path line=(0,0)--(5cm,0);
@@ -783,6 +823,7 @@ draw(shift(0,-6cm)*line,Arrows(filltype=FillDraw(-10,10,0.8red)));
 ```
 #figure(image("figures/asy-41.pdf"), caption: [asy-41])
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 draw(line,linewidth(5bp),Arrow);
@@ -792,6 +833,7 @@ draw(shift(0,-8cm)*line,linewidth(10bp),Arrow(20bp,50,filltype=NoFill));
 ```
 #figure(image("figures/asy-42.pdf"), caption: [asy-42])
 #line()
+#pagebreak()
 ```asymptote
 size(5cm,0);
 path line=(0,0)--(5,0);
@@ -804,6 +846,7 @@ draw(shift(0,-6)*line,BeginArrow(20bp,40,pos,filltype=NoFill));
 ```
 #figure(image("figures/asy-43.pdf"), caption: [asy-43])
 #line()
+#pagebreak()
 ```asymptote
 unitsize(8cm);
 path g=(0,0)--(1,0);
@@ -812,6 +855,7 @@ add(arrow(g,Relative(0.55)));
 ```
 #figure(image("figures/asy-44.pdf"), caption: [asy-44])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 path g = (0,0)--(1,0);
@@ -820,6 +864,7 @@ add(arrow(reverse(g), invisible, FillDraw(green,red), Relative(0.75)));
 ```
 #figure(image("figures/asy-45.pdf"), caption: [asy-45])
 #line()
+#pagebreak()
 ```asymptote
 size(5cm,0);
 path line=(0,0)--(5,0);
@@ -831,6 +876,7 @@ draw(T^3*line, Arrow, BeginBar);
 ```
 #figure(image("figures/asy-46.pdf"), caption: [asy-46])
 #line()
+#pagebreak()
 ```asymptote
 path line=(0,0)--(5cm,0);
 transform T=shift(0,-1cm);
@@ -841,6 +887,7 @@ draw(T^4*line,dotted+red,Bars);
 ```
 #figure(image("figures/asy-47.pdf"), caption: [asy-47])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 draw((-0.5,0)--(1,0));
@@ -850,34 +897,40 @@ draw((0,0)--(0,0.75),linewidth(1mm),Arrow(3mm));
 ```
 #figure(image("figures/asy-48.pdf"), caption: [asy-48])
 #line()
+#pagebreak()
 ```asymptote
 fill((0,0)--(0,6cm)--(6cm,0)--cycle, gray);
 ```
 #figure(image("figures/asy-49.pdf"), caption: [asy-49])
 #line()
+#pagebreak()
 ```asymptote
 filldraw((0,0)--(0,6cm)--(6cm,0)--cycle,gray);
 ```
 #figure(image("figures/asy-50.pdf"), caption: [asy-50])
 #line()
+#pagebreak()
 ```asymptote
 filldraw((0,0)--(0,6cm)--(6cm,0)--cycle,
     fillpen=gray, drawpen=linewidth(1mm) + 0.8 * red);
 ```
 #figure(image("figures/asy-51.pdf"), caption: [asy-51])
 #line()
+#pagebreak()
 ```asymptote
 pen[][] p={{rgb(black)}, {rgb(.8red)}};
 latticeshade((0,0)--(0,6cm)--(6cm,0)--cycle, p);
 ```
 #figure(image("figures/asy-52.pdf"), caption: [asy-52])
 #line()
+#pagebreak()
 ```asymptote
 pen[][] p={{rgb(black),rgb(black)}, {rgb(red),rgb(green)}};
 latticeshade((0,0)--(0,6cm)--(6cm,0)--cycle,p);
 ```
 #figure(image("figures/asy-53.pdf"), caption: [asy-53])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pen[][] p={{rgb(white),rgb(grey),rgb(black)},
@@ -887,6 +940,7 @@ latticeshade(unitsquare,p);
 ```
 #figure(image("figures/asy-54.pdf"), caption: [asy-54])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 import palette;
@@ -896,6 +950,7 @@ latticeshade(box((0,0),(1,1)),palette(v,Palette));
 ```
 #figure(image("figures/asy-55.pdf"), caption: [asy-55])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair A=(0.35,0.35), B=(0.6,0.6);
@@ -908,6 +963,7 @@ clip(unitsquare);
 ```
 #figure(image("figures/asy-56.pdf"), caption: [asy-56])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 transform t=xscale(1.25);
@@ -918,6 +974,7 @@ draw(pa--pb, dashed);
 ```
 #figure(image("figures/asy-57.pdf"), caption: [asy-57])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 real r=1;
@@ -939,6 +996,7 @@ draw(circle(0,R));
 ```
 #figure(image("figures/asy-58.pdf"), caption: [asy-58])
 #line()
+#pagebreak()
 ```asymptote
 size(16cm,0);
 path[] P=texpath("$\displaystyle\int_{-\infty}^{+\infty}
@@ -950,6 +1008,7 @@ shipout(bbox(3mm,Fill));
 ```
 #figure(image("figures/asy-59.pdf"), caption: [asy-59])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair A, B, C, D;
@@ -959,6 +1018,7 @@ fill(A--C--B--D--cycle,grey);
 ```
 #figure(image("figures/asy-60.pdf"), caption: [asy-60])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair A, B, C, D;
@@ -968,6 +1028,7 @@ filldraw(A--C--B--D--cycle,grey);
 ```
 #figure(image("figures/asy-61.pdf"), caption: [asy-61])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm, 0);
 path cle=unitcircle;
@@ -977,6 +1038,7 @@ filldraw(shift((1, 0))*cle, blue+opacity(0.5));
 ```
 #figure(image("figures/asy-62.pdf"), caption: [asy-62])
 #line()
+#pagebreak()
 ```asymptote
 pair O=0;
 dot("N",O,N);
@@ -986,6 +1048,7 @@ dot("W",O,W);
 ```
 #figure(image("figures/asy-63.pdf"), caption: [asy-63])
 #line()
+#pagebreak()
 ```asymptote
 pair O=0;
 labelmargin=2;
@@ -996,6 +1059,7 @@ dot("W",O,W);
 ```
 #figure(image("figures/asy-64.pdf"), caption: [asy-64])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 pair O=0;
@@ -1010,6 +1074,7 @@ draw("SW",O,5SW);
 ```
 #figure(image("figures/asy-65.pdf"), caption: [asy-65])
 #line()
+#pagebreak()
 ```asymptote
 pair O=0;
 draw(scale(2)*Label("N",0.8red),O,10*N,linewidth(3mm));
@@ -1023,6 +1088,7 @@ draw(rotate(45)*Label("SW"),O,5SW);
 ```
 #figure(image("figures/asy-66.pdf"), caption: [asy-66])
 #line()
+#pagebreak()
 ```asymptote
 pair O=0;
 dot(O, red + 8bp);
@@ -1030,28 +1096,33 @@ label(scale(5) * "$\frac{\pi^2}{2}$", O);
 ```
 #figure(image("figures/asy-67.pdf"), caption: [asy-67])
 #line()
+#pagebreak()
 ```asymptote
 dot(Label(scale(5) * "$\frac{\pi^2}{2}$", (0,0), align=E, blue),
   red + 10bp);
 ```
 #figure(image("figures/asy-68.pdf"), caption: [asy-68])
 #line()
+#pagebreak()
 ```asymptote
 label(scale(15)*Label("$\pi$"), (0,0));
 ```
 #figure(image("figures/asy-69.pdf"), caption: [asy-69])
 #line()
+#pagebreak()
 ```asymptote
 texpreamble("\usepackage{manfnt}");
 label(scale(6)*Label("\textdbend"), (0,0));
 ```
 #figure(image("figures/asy-70.pdf"), caption: [asy-70])
 #line()
+#pagebreak()
 ```asymptote
 dot(Label("$A$", red), (0,0), S, blue+5pt);
 ```
 #figure(image("figures/asy-71.pdf"), caption: [asy-71])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm, 6cm);
 dot(Label("$A$"),(0,0),S);
@@ -1061,11 +1132,13 @@ shipout(bbox());
 ```
 #figure(image("figures/asy-72.pdf"), caption: [asy-72])
 #line()
+#pagebreak()
 ```asymptote
 dot(Label("$A$", fontsize(26pt) + red), (0,0), NE, blue+10bp);
 ```
 #figure(image("figures/asy-73.pdf"), caption: [asy-73])
 #line()
+#pagebreak()
 ```asymptote
 defaultpen(fontsize(26pt));
 dot(Label("$A$"),(0,0),NE, red+10bp);
@@ -1073,11 +1146,13 @@ dot(Label("$B$"),(2cm,0),NE+N, blue+10pt);
 ```
 #figure(image("figures/asy-74.pdf"), caption: [asy-74])
 #line()
+#pagebreak()
 ```asymptote
 label(rotate(45) * scale(5) * "\textbf{Hello}");
 ```
 #figure(image("figures/asy-75.pdf"), caption: [asy-75])
 #line()
+#pagebreak()
 ```asymptote
 frame f;
 label(f,"\textbf{Hello}",yellow,Fill(black));
@@ -1085,6 +1160,7 @@ add(scale(5)*rotate(45)*f);
 ```
 #figure(image("figures/asy-76.pdf"), caption: [asy-76])
 #line()
+#pagebreak()
 ```asymptote
 frame f;
 filldraw(scale(5cm)*unitsquare, black);
@@ -1093,6 +1169,7 @@ add(rotate(45) * scale(5) * f, (2.5cm,2.5cm));
 ```
 #figure(image("figures/asy-77.pdf"), caption: [asy-77])
 #line()
+#pagebreak()
 ```asymptote
 label(scale(5)*"\textbf{Cancel}");
 pair a = min(currentpicture);
@@ -1101,6 +1178,7 @@ draw((a.x,0)--(b.x,0), 6bp + red * 0.8);
 ```
 #figure(image("figures/asy-78.pdf"), caption: [asy-78])
 #line()
+#pagebreak()
 ```asymptote
 label(scale(6)*"\textbf{Cancel}");
 layer();
@@ -1110,6 +1188,7 @@ draw((a.x,0)--(b.x,0), 6bp + blue * 0.8);
 ```
 #figure(image("figures/asy-79.pdf"), caption: [asy-79])
 #line()
+#pagebreak()
 ```asymptote
 pen dottedGreen = 4pt + ForestGreen + linetype(new real[] {0,2});
 size(6cm,0);
@@ -1124,6 +1203,7 @@ dot(scale(2)*"$A$",(0,0),-bissec, 8pt+purple);
 ```
 #figure(image("figures/asy-80.pdf"), caption: [asy-80])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=0, B=(1,0), C=(2,2);
@@ -1134,6 +1214,7 @@ dot(scale(2)*"$C$",C,dir(A--C,B--C), 8pt+blue);
 ```
 #figure(image("figures/asy-81.pdf"), caption: [asy-81])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 path line=(0,0)--(6cm,0);
@@ -1145,6 +1226,7 @@ draw(Label("$D$",fontsize(18pt)+Purple),T^3*line, 2pt+Teal);
 ```
 #figure(image("figures/asy-82.pdf"), caption: [asy-82])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 path line=(0,0)--(6cm,0);
@@ -1160,6 +1242,7 @@ draw(scale(2)*Label("D",position=Relative(0.25),UnFill),
 ```
 #figure(image("figures/asy-83.pdf"), caption: [asy-83])
 #line()
+#pagebreak()
 ```asymptote
 pair c=0;
 label("abc xyz ijk",c,Align,basealign);
@@ -1169,6 +1252,7 @@ shipout((scale(4)*currentpicture.fit()));
 ```
 #figure(image("figures/asy-84.pdf"), caption: [asy-84])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=0, B=(1,0), C=(1,1);
@@ -1178,6 +1262,7 @@ draw(scale(2)*"$\sqrt{2}$",C--A, 4bp+ForestGreen);
 ```
 #figure(image("figures/asy-85.pdf"), caption: [asy-85])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=0, B=(1,0), C=(1,1);
@@ -1188,6 +1273,7 @@ draw(scale(2)*Label("$\sqrt{2}$",
 ```
 #figure(image("figures/asy-86.pdf"), caption: [asy-86])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 path g=(1,1)--(3,2);
@@ -1197,6 +1283,7 @@ draw(scale(2)*Label("a text", Purple,
 ```
 #figure(image("figures/asy-87.pdf"), caption: [asy-87])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 pair A=(0,0), B=(6cm,0);
@@ -1219,6 +1306,7 @@ draw("$B$", TD^3*B, N);
 ```
 #figure(image("figures/asy-88.pdf"), caption: [asy-88])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm, 0);
 void distance(picture pic=currentpicture, pair A, pair B,
@@ -1242,6 +1330,7 @@ distance(A, B, Label("$\ell$", Rotate(dir(A--B))), 1.5);
 ```
 #figure(image("figures/asy-89.pdf"), caption: [asy-89])
 #line()
+#pagebreak()
 ```asymptote
 size(0, 4cm);
 real margin=2mm;
@@ -1258,6 +1347,7 @@ add(new void(frame f, transform t) {
 ```
 #figure(image("figures/asy-90.pdf"), caption: [asy-90])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 defaultpen(1bp+blue);
@@ -1270,6 +1360,7 @@ arrow("4",A,NW, 2.5cm,N);
 ```
 #figure(image("figures/asy-91.pdf"), caption: [asy-91])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 draw(E--N--W--S--cycle, red+1mm);
@@ -1278,6 +1369,7 @@ dot(E..N..W..S..cycle, 8bp+blue);
 ```
 #figure(image("figures/asy-92.pdf"), caption: [asy-92])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 pair O=0;
@@ -1286,6 +1378,7 @@ dot(circle(O,4cm), 8bp+red);
 ```
 #figure(image("figures/asy-93.pdf"), caption: [asy-93])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm);
 draw(unitcircle, 2bp+blue, dot(10pt+red));
@@ -1295,6 +1388,7 @@ draw(shift(-0.5,-0.5)*unitsquare, 4bp+ForestGreen,
 ```
 #figure(image("figures/asy-94.pdf"), caption: [asy-94])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 real R=3cm;
@@ -1304,6 +1398,7 @@ dot((R*cos(pi/6),R*sin(pi/6)), 12bp+red);
 ```
 #figure(image("figures/asy-95.pdf"), caption: [asy-95])
 #line()
+#pagebreak()
 ```asymptote
 size(5cm,0);
 import graph;
@@ -1313,104 +1408,110 @@ dot(PerfectCircle, red);
 ```
 #figure(image("figures/asy-96.pdf"), caption: [asy-96])
 #line()
+#pagebreak()
 ```asymptote
-size(6cm,0);
+size(4cm,0);
 //Return Circle AB diameter
-path circle(pair A, pair B)
-{
+path circle(pair A, pair B) {
   return shift(midpoint(A--B))*scale(abs(A-B)/2)*unitcircle;
 }
 pair A=(0,0), B=(1,0);
-draw(circle(A,B));
-dot(A--B);
+draw(circle(A,B), 3pt+blue);
+dot(A--B, 8pt+red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-97.pdf"), caption: [asy-97])
 #line()
+#pagebreak()
 ```asymptote
-size(6cm,0);
+size(5cm,0);
 //Return Circle AB diameter
-path circle(pair A, pair B)
-{
+path circle(pair A, pair B) {
   return shift(midpoint(A--B))*scale(abs(A-B)/2)*unitcircle;
 }
 pair A=(0,0), B=(3,0), C=(2,1);
-draw(A--B, 0.8blue);
-draw(A--C, 0.8red);
-draw(B--C, 0.8green);
-draw(circle(A,B), 0.8blue);
-draw(circle(A,C), 0.8red);
-draw(circle(B,C), 0.8green);
+draw(A--B, 5bp+0.8blue);
+draw(A--C, 5bp+0.8red);
+draw(B--C, 5bp+0.8green);
+draw(circle(A,B), 3pt+0.8blue);
+draw(circle(A,C), 3pt+0.8red);
+draw(circle(B,C), 3pt+0.8green);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-98.pdf"), caption: [asy-98])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 //Return Circle AB diameter
-path circle(pair A, pair B)
-{
+path circle(pair A, pair B) {
   return shift(midpoint(A--B))*scale(abs(A-B)/2)*unitcircle;
 }
 pair A=(0,0), B=(1,0), C=(2,0);
 path cleAB=circle(A,B);
 path cleAC=circle(A,C);
-for(real t=0; t<length(cleAB); t+=0.01)
-  fill(circle(point(cleAB,t),point(cleAC,t)));
+for(real t=0; t<length(cleAB); t+=0.075)
+  draw(circle(point(cleAB,t),point(cleAC,t)));
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-99.pdf"), caption: [asy-99])
 #line()
+#pagebreak()
 ```asymptote
-size(0,0);
+size(4cm,0);
 pair O=0;
 defaultpen(linewidth(2mm));
-draw(arc(O,4cm,0,60), 0.8red, BeginPenMargin);
-draw(arc(O,4cm,60,120), 0.7green, PenMargins);
-draw(arc(O,-4cm,0,120), 0.7blue);
-
+draw(arc(O,4,0,60), 0.8red, BeginPenMargin);
+draw(arc(O,4,60,120), 0.7green, PenMargins);
+draw(arc(O,-4,0,120), 0.7blue);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-100.pdf"), caption: [asy-100])
 #line()
+#pagebreak()
 ```asymptote
-size(8cm,0);
+size(5cm,0);
 picture pic;
-pen [] P={0.8red,0.7green,blue+0.5grey,yellow+0.6grey};
-fill(scale(10)*unitcircle,.2blue);
+pen [] P={2bp+red, 2bp+green, 2bp+blue, 2bp+orange};
+fill(scale(10)*unitcircle, black);
 for (int i = 0; i <= 3; ++i)
-  draw(pic, arc((0,0),10,i*90,(i+1)*90), P[i]);
-for (real i = 1; i <= 10; i+=0.05)
+  draw(pic, arc((0,0), 10, i*90, (i+1)*90), P[i]);
+for (real i = 1; i <= 10; i+=0.075)
   add(rotate(90*i)*scale(1/i)*pic);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-101.pdf"), caption: [asy-101])
 #line()
+#pagebreak()
 ```asymptote
-size(6cm,0);
+size(4cm,0);
 real a=360/6;
 for (int i = -1; i < 5; ++i)
-  fill(arc((0,0),1,i*a,(i+1)*a)--cycle,grey);
+  fill(arc((0,0), 1, i*a, (i+1)*a)--cycle, blue);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-102.pdf"), caption: [asy-102])
 #line()
+#pagebreak()
 ```asymptote
-size(6cm,0);
+size(4cm,0);
 real n=7, a=360/n;
 for (int i = 0; i < n; ++i)
-  filldraw((0,0)--arc((0,0),1,i*a,(i+1)*a)--cycle, i/n*blue + (1-i/n)*green + grey);
-
+  filldraw((0,0)--arc((0,0), 1, i*a, (i+1)*a)--cycle,
+  i/n*blue+(1-i/n)*green+grey, 4bp+DarkOrange);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-103.pdf"), caption: [asy-103])
 #line()
+#pagebreak()
 ```asymptote
-size(6cm,0);
+size(5cm,0);
 real a=360/6;
 for (int i = -1; i < 5; ++i)
-  draw(Label(format("%i",i+1)),arc((0,0),10,i*a,(i+1)*a)--cycle,grey);
+  draw(scale(1.5)*Label(format("%i", i+1), red),
+    arc((0,0), 10, i*a, (i+1)*a)--cycle, 2bp+blue);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-104.pdf"), caption: [asy-104])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
 pair x=0;
-pair y=(-6.5cm,0);
+pair y=(-7.5cm,0);
 
 label(format(6.66666), x, E);
 label("format(6.66666)", y, E);
@@ -1479,23 +1580,9 @@ x+=(0,-1cm);y+=(0,-1cm);
 label(format("$x=% .2f$", 6.666666), x, E);
 label("format(\"\$x=\% .2f\$\", 6.666666)", y, E);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-105.pdf"), caption: [asy-105])
 #line()
-```asymptote
-size(0,0);
-texpreamble("\usepackage[frenchb]{babel}");
-pair x=0;
-x+=(0,-1cm);
-label(format("$x=%f$", 666666.666), x, E);
-x+=(0,-1cm);
-label(format("$x=%f$", pi), x, E);
-x+=(0,-1cm);
-label(format("$x=\nombre{%f}$", 666666.666), x, E);
-x+=(0,-1cm);
-label(format("$x=\nombre{%f}$", pi), x, E);
-```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
-#line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1514,8 +1601,9 @@ int pgcd(int a, int b)
 
 string texfrac(int p, int q,
                string factor="",
-               bool signin=false, bool factorin=true,
-               bool displaystyle=false,
+               bool signin=false,
+               bool factorin=true,
+               bool displaystyle=true,
                bool zero=true)
 {
   if (p==0) return (zero ? "$0$" : "");
@@ -1524,29 +1612,44 @@ string texfrac(int p, int q,
   int num= round(p/pgcd), den= round(q/pgcd);
   string nums;
   if (num==1)
-    if (factor=="" || (!factorin && (den !=1))) nums="1"; else nums="";
+    if (factor=="" || (!factorin && (den !=1)))
+      nums="1";
+    else
+      nums="";
   else
     if (num==-1)
-      if (factor=="" || (!factorin && (den !=1))) nums="-1"; else nums="-";
-    else nums= (string) num;
-  if (den==1) return "$" + nums + factor + "$";
+      if (factor=="" || (!factorin && (den !=1)))
+        nums="-1";
+      else
+        nums="-";
+    else
+      nums= (string) num;
+  if (den==1)
+    return "$" + nums + factor + "$";
   else
     {
       string dens= (den==1) ? "" : (string) den;
       if (signin || num>0)
         if (factorin)
-          return disp + "\frac{" + nums + factor + "}{" + (string) dens + "}$";
+          return disp + "\frac{" + nums + factor +
+            "}{" + (string) dens + "}$";
         else
-          return disp + "\frac{" + nums + "}{" + (string) dens + "}"+ factor + "$";
+          return disp + "\frac{" + nums +
+            "}{" + (string) dens + "}"+ factor + "$";
       else
         {
           if (num==-1)
-            if (factor=="" || !factorin) nums="1"; else nums="";
+            if (factor=="" || !factorin)
+              nums="1";
+            else
+              nums="";
           else nums=(string)(abs(num));
         if (factorin)
-          return disp + "-\frac{" + nums + factor + "}{" + (string) dens + "}$";
+          return disp + "-\frac{" + nums + factor +
+            "}{" + (string) dens + "}$";
         else
-          return disp + "-\frac{" + nums + "}{" + (string) dens + "}"+ factor + "$";
+          return disp + "-\frac{" + nums +
+            "}{" + (string) dens + "}"+ factor + "$";
         }
     }
 }
@@ -1554,78 +1657,90 @@ string texfrac(int p, int q,
 for (int i=-4; i<=4; ++i)
   {
     label(texfrac(i,4), (i*cm,0));
-    label(texfrac(i,4,signin=true), (i*cm,-cm));
-    label(texfrac(i,4,factor="\pi"), (i*cm,-2cm));
-    label(texfrac(i,4,factor="\pi",factorin=false), (i*cm,-3cm));
-    label(texfrac(i,4,factor="\pi",signin=true,factorin=true), (i*cm,-4cm));
-    label(texfrac(i,4,factor="\pi",signin=true,factorin=false,displaystyle=true,zero=false), (i*cm,-5cm));
+    label(texfrac(i,4,signin=true), (i*cm,-1.5cm));
+    label(texfrac(i,4,factor="\pi"), (i*cm,-3cm));
+    label(texfrac(i,4,factor="\pi",factorin=false),
+      (i*cm,-4.5cm));
+    label(texfrac(i,4,factor="\pi",signin=true,factorin=true),
+      (i*cm,-6cm));
+    label(texfrac(i,4,factor="\pi",signin=true,factorin=false,
+      displaystyle=true,zero=false), (i*cm,-7.5cm));
   }
+
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-106.pdf"), caption: [asy-106])
 #line()
+#pagebreak()
 ```asymptote
-size(6cm,0);
+size(5cm,0);
 
 pair A=0, B=(1,0), C=(0.7,1);
 
-void fillangle(picture pic=currentpicture,
-         pair O=0, pair A, pair B,
-         real radius=10,
-         pen p=grey)
+void fillangle(
+    picture pic=currentpicture,
+    pair O=0, pair A, pair B,
+    real radius=10,
+    pen p=blue)
 {
   picture tpic;
-  int n=sgn(radius);
   real a1=degrees(shift(-O)*A,false);
   real a2=degrees(shift(-O)*B,false);
-  fill(tpic,(0,0)--arc((0,0), -radius, max(a1,a2), min(a1,a2),true)--cycle, p=p);
-  add(pic,tpic,O);
+  fill(tpic, (0,0)--arc((0,0), -radius,
+    max(a1,a2), min(a1,a2), true)--cycle, p=p);
+  add(pic, tpic, O);
 }
 
-draw(A--B--C--cycle);
+real r1=18, r2=20;
+fillangle(A, B, C, r1, red);
+fillangle(A, B, C, -r2);
+fillangle(B, A, C, r1, red);
+fillangle(B, A, C, -r2);
+fillangle(C, B, A, r1, red);
+fillangle(C, B, A, -r2);
 
-real r1=15, r2=20;
-fillangle(A,B,C,r1,.8red);
-fillangle(A,B,C,-r2);
-fillangle(B,A,C,r1,.8red);
-fillangle(B,A,C,-r2);
-fillangle(C,B,A,r1,.8red);
-fillangle(C,B,A,-r2);
-
+draw(A--B--C--cycle, 2bp+ForestGreen);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-107.pdf"), caption: [asy-107])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 pair A, B, C;
 A=(0,0); B=(4cm,0); C=(0,4cm);
 
-draw(A--B--C--cycle);
-filldraw(shift(A)*scale(6bp)*unitcircle, white);
-filldraw(shift(B)*scale(6bp)*unitcircle, white);
-filldraw(shift(C)*scale(6bp)*unitcircle, white);
+draw(A--B--C--cycle, 2bp+blue);
+filldraw(shift(A)*scale(6)*unitcircle, red);
+filldraw(shift(B)*scale(6)*unitcircle, red);
+filldraw(shift(C)*scale(6)*unitcircle, red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-108.pdf"), caption: [asy-108])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair A=(0,0), B=(0,1), C=(1,0), D=(1,1);
 
-draw(A..B..C..D);
-dot(A);dot(B);dot(C);dot(D);
+draw(A..B..C..D, 2bp+blue);
+dot(A, 8bp+red);
+dot(B, 8bp+red);
+dot(C, 8bp+red);
+dot(D, 8bp+red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-109.pdf"), caption: [asy-109])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 import roundedpath;
 
 pair A=(0,0), B=(0,1), C=(1,0), D=(1,1);
 
-draw(roundedpath(A--B--C--D,.5));
-dot(A--B--C--D);
+draw(roundedpath(A--B--C--D, 0.5), 2bp+blue);
+dot(A--B--C--D, 8bp+red);
 ```
-// #figure(image("figures/asy-.pdf"), caption: [asy-])
+#figure(image("figures/asy-110.pdf"), caption: [asy-110])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=(0,0), B=(0,1), C=(1,0), D=(1,1);
@@ -1635,6 +1750,7 @@ dot(A--B--C--D);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=(0,0), B=(0,1), C=(1,0), D=(1,1);
@@ -1644,6 +1760,7 @@ dot(A);dot(B);dot(C);dot(D);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 pair A=(0,0), B=(0,1), C=(1,0), D=(1,1);
@@ -1653,6 +1770,7 @@ dot(A);dot(B);dot(C);dot(D);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 import roundedpath;
@@ -1664,6 +1782,7 @@ dot(unitsquare);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1674,6 +1793,7 @@ dot(A{N}..B);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1684,6 +1804,7 @@ dot(A{N}..B{E});
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1694,6 +1815,7 @@ dot(A{dir(90)}..B{dir(0)});
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1704,6 +1826,7 @@ dot(A{dir(90)}..B{dir(180)});
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1714,6 +1837,7 @@ dot(A{N}..B{N});
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1724,6 +1848,7 @@ dot(A{N}..B{N}..cycle);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 //From documentation of Asymptote
 size(0,6cm);
@@ -1736,6 +1861,7 @@ fill(circle((0,-0.5),0.125));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm);
 draw(unitcircle, linewidth(bp));
@@ -1750,6 +1876,7 @@ for (int t=-88; t <= 88; t += 2) {
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1761,6 +1888,7 @@ dot(A--B--C);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1772,6 +1900,7 @@ dot(A--B--C);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1786,6 +1915,7 @@ dot(A--B--C);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1797,6 +1927,7 @@ dot(A--B--C);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1812,6 +1943,7 @@ dot(A--B--C,linewidth(6bp));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1826,6 +1958,7 @@ dot(A--B--C,linewidth(6bp));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1839,6 +1972,7 @@ dot(A--B--C,linewidth(6bp));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1860,6 +1994,7 @@ draw((C--ctrl_lft_C),Arrow, p=grey);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1881,6 +2016,7 @@ draw((C--ctrl_lft_C),Arrow, p=grey);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm);
 path p1 = (0,0){up}..(5,4)..(10,0){down};
@@ -1898,6 +2034,7 @@ draw(p2,linewidth(1mm));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1909,6 +2046,7 @@ dot(pt1^^pt2);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1924,6 +2062,7 @@ for(real i=0; i<=length(cle); i+=.2)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1936,6 +2075,7 @@ for(real i=0; i<=length(cle); i+=.2)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1948,6 +2088,7 @@ for(real i=0; i<=length(cle); i+=.2)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 pair O=(0,0);
@@ -1968,6 +2109,7 @@ draw(p, dot);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -1980,6 +2122,7 @@ for(real i=0; i<=length(cle); i+=.2)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -1993,6 +2136,7 @@ for(real i=0; i<=length(cle); i+=.2)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2005,6 +2149,7 @@ for(real i=0; i<=length(curv); i+=.1)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 
@@ -2023,6 +2168,7 @@ draw(dirc,grey);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 // Author: John Bowman
 pair[] z=new pair[10];
@@ -2046,6 +2192,7 @@ for(int i = 0; i < z.length; ++i) {
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 import math;
@@ -2067,6 +2214,7 @@ drawline((pt_curv - pt_dir_cle), (pt_curv + pt_dir_cle), blue);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2086,6 +2234,7 @@ draw(Label("$Y_M$",position=EndPoint),M--(0,ypart(M)),dotted);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2100,6 +2249,7 @@ draw(shift(5*(1mm,2mm))*p);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2112,6 +2262,7 @@ draw(p,red+1mm);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2126,6 +2277,7 @@ draw(p,red+1mm);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 
@@ -2139,6 +2291,7 @@ draw(A--B,grey);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2151,6 +2304,7 @@ draw(scale(2)*cle,blue);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 
@@ -2173,6 +2327,7 @@ dot("$A$",A,N);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2209,6 +2364,7 @@ for (int i=0; i<=5; ++i)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 
@@ -2225,6 +2381,7 @@ for (int i=3; i<9; ++i)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2262,6 +2419,7 @@ for (int i=0; i<=4; ++i)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2302,6 +2460,7 @@ draw(P[2] -- P[3] -- P[4] -- P[0] -- P[1] --
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2358,6 +2517,7 @@ shipout(bbox(0,black+4mm));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2369,6 +2529,7 @@ shipout(bbox(0.25cm,Fill));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2377,6 +2538,7 @@ shipout(bbox(0.25cm,Fill));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,6cm);
 
@@ -2396,6 +2558,7 @@ label(format("$\arg(z_a)\simeq%.4f$",angle(A)),(.5,-2),E);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 
@@ -2424,6 +2587,7 @@ dot(Label("$E(z_e=iz_d)$"),E,NW);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2448,6 +2612,7 @@ draw(image..cycle,red);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2462,6 +2627,7 @@ draw(point(apath,0.5)--point(apath,1.5)--point(apath,2.5),.8blue);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 
@@ -2472,6 +2638,7 @@ draw(subpath(apath,length(apath)/2,length(apath)),1pt+.8blue,BeginPenMargin);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 texpreamble("\usepackage{amsmath}");
@@ -2493,6 +2660,7 @@ label("\small The sizes of the blue path and the black path are equal",(1,.25));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 
@@ -2506,6 +2674,7 @@ draw(apath);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 
@@ -2524,6 +2693,7 @@ draw(apath);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 unitsize(5cm);
 
@@ -2543,6 +2713,7 @@ draw(p,lightgrey);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 import labelpath;
 
@@ -2555,6 +2726,7 @@ draw(p, lightgrey);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2567,6 +2739,7 @@ dot(intersectionpoint(pth1,pth2),red);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2579,6 +2752,7 @@ dot(intersectionpoint(p,reverse(q)) , blue);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 import math;
@@ -2601,6 +2775,7 @@ dot("$D$",D,N);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 import math;
@@ -2620,6 +2795,7 @@ draw(B--I2,1pt+dotted);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2656,6 +2832,7 @@ label("$C'$",Cp,S);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2670,6 +2847,7 @@ draw(point(q, intersect(p,q)[1])--postcontrol(q, intersect(p,q)[1]), .8blue,Arro
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 import graph;
 size(8cm,0);
@@ -2685,6 +2863,7 @@ shipout(bbox(2mm, Fill(0.15*blue)));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2713,6 +2892,7 @@ for (real t=0; t<=4; t+=.01)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2745,6 +2925,7 @@ drawline(C, orth, dotted);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2775,6 +2956,7 @@ draw(shift(circ)*scale(abs(circ-A))*unitcircle);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2808,6 +2990,7 @@ draw(shift(ins)*scale(abs(ins-iAB))*unitcircle);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 import math;
@@ -2841,6 +3024,7 @@ drawline(B,C, p);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 defaultpen(2mm+linecap(0));
@@ -2857,6 +3041,7 @@ draw(lastcut(q,p).after, .8yellow);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 
@@ -2878,6 +3063,7 @@ draw(subpath(reverse(q), length(q)-ipq[1], length(q)), 0.3green);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -2919,6 +3105,7 @@ for(int i=0; i<=4; ++i)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 // Venn diagram // Diagramme de Venn
 // Edwards' construction // Construction d'Edwards
@@ -2957,6 +3144,7 @@ draw(EdVenn(6));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(15cm,0);
 
@@ -2981,6 +3169,7 @@ label("I found " + (string) nb + " points of intersection.",((Maxx+Minx)/2,Miny)
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(10cm,0);
 
@@ -3024,6 +3213,7 @@ draw(p);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm,0);
 path [] c;
@@ -3035,6 +3225,7 @@ draw(buildcycle(c[1],c[2]), .8red+4bp);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 
@@ -3051,6 +3242,7 @@ draw(bound);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 
@@ -3071,6 +3263,7 @@ draw(a^^b^^c);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -3081,6 +3274,7 @@ filldraw(pt1^^pt2,yellow+.9white);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -3091,6 +3285,7 @@ filldraw(pt1^^pt2,evenodd+yellow+0.9white);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -3102,6 +3297,7 @@ filldraw(pt1^^pt2^^pt3,evenodd+yellow+.9white);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(0,0);
 
@@ -3113,6 +3309,7 @@ filldraw(pt1^^pt2^^pt3,evenodd+yellow+.9white);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(6cm);
 
@@ -3127,6 +3324,7 @@ fill(xscale(2)*unitcircle);
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 size(8cm,0);
 import patterns;
@@ -3142,6 +3340,7 @@ filldraw(shift(1,-2)*yscale(2)*unitsquare,pattern("b_hatchback"));
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 void enclose(picture pic=currentpicture, envelope e,
              Label[] L=new Label[],
@@ -3185,73 +3384,88 @@ text some text some text some text some text.\end{minipage}",(5.4cm,0)),
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
 ```asymptote
 
 ```
 // #figure(image("figures/asy-.pdf"), caption: [asy-])
 #line()
+#pagebreak()
