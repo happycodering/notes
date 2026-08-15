@@ -1,7 +1,8 @@
+#import "components.typ": *
 #set document(title: [Asymptote])
 #set text(
   font: ("Noto Sans", "Noto Color Emoji"),
-  size: 15pt,
+  size: base-size,
   hyphenate: false,
 )
 #show math.equation: set text(font: "Noto Sans Math")
@@ -11,7 +12,7 @@
 )
 #set page(
   paper: "a4",
-  margin: (left: 1cm, right: 1cm, top: 1.5cm, bottom: 1cm),
+  margin: (left: 1cm, right: 1cm, top: 1.75cm, bottom: 1cm),
 )
 #set par(
   justify: true,
@@ -20,15 +21,46 @@
 #set heading(
   numbering: "1.1",
 )
+
+// #show heading.where(level: 1): it => {
+//   v(2cm)
+//   context {
+//     let n = counter(heading).get().first()
+//     text(size: base-size * h1-scale, weight: "bold")[Chapter #n. #it.body]
+//   }
+//   // text(size: 24pt, weight: "bold")[#it]
+//   v(1.5cm)
+// }
+
 #show heading.where(level: 1): it => {
   v(2cm)
-  context {
-    let n = counter(heading).get().first()
-    text(size: 24pt, weight: "bold")[Chapter #n. #it.body]
-  }
-  // text(size: 24pt, weight: "bold")[#it]
-  v(1.5cm)
+  set text(size: base-size * h1-scale, fill: blue)
+  set block(below: 2em)
+  it
 }
+
+#show heading.where(level: 2): it => {
+  set text(size: base-size * h2-scale, fill: blue)
+  set block(above: 1.25em, below: 1.25em)
+  it
+}
+
+#show heading.where(level: 3): it => {
+  set text(size: base-size * h3-scale, fill: blue)
+  set block(above: 1.25em, below: 1.25em)
+  set heading(hanging-indent: 0pt)
+  block(it.body)
+}
+
+#set heading(numbering: (..nums) => {
+  let level = nums.pos().len()
+  if level >= 3 {
+    none
+  } else {
+    numbering("1.1", ..nums)
+  }
+})
+
 #show outline.entry: it => link(
   it.element.location(),
   it.indented(
@@ -40,12 +72,15 @@
     it.inner(),
   ),
 )
-#show raw.where(block: true): block.with(
+
+#show raw.where(block: true): it => block(
   fill: luma(95%),
-  inset: 8pt,
-  stroke: (left: 3pt + luma(50%)),
-  radius: 3pt,
+  inset: 10pt,
+  stroke: (left: 2pt + luma(50%)),
+  width: 100%,
+  it,
 )
+
 #set figure(placement: none)
 #show figure: it => {
   show image: box.with(
@@ -171,13 +206,17 @@
       }
       text(size: 12pt)[
         #grid(
-          columns: (1fr, 1fr),
-          align(left)[#upper[#header-text]], page-number,
+          columns: (auto, 1fr, auto),
+          stroke: (bottom: 1pt),
+          inset: (bottom: 7pt),
+          align(left)[#upper[#header-text]], [], page-number,
         )
       ]
     }
   },
 )
+
+#counter(page).update(1)
 
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
