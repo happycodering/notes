@@ -12,10 +12,139 @@
 #show raw: set text(
   font: "Noto Sans Mono",
 )
+
 #set page(
-  paper: "a4",
-  margin: (left: 1cm, right: 1cm, top: 1.75cm, bottom: 1cm),
+  "a4",
+  margin: (
+    top: 1.75cm,
+    bottom: 1cm,
+    left: 1cm,
+    right: 1cm,
+  ),
+  header: context {
+    let current-page = here().page()
+
+    let chapters = query(selector(heading.where(level: 1)))
+    let sections = query(selector(heading.where(level: 2)))
+
+    let first-chapter = chapters.first()
+
+    if first-chapter != none {
+      let first-chapter-page = first-chapter.location().page()
+
+      if current-page >= first-chapter-page {
+        // Find the current chapter.
+        let chapter = none
+
+        for ch in chapters {
+          if ch.location().page() <= current-page {
+            chapter = ch
+          }
+        }
+
+        if chapter != none {
+          let chapter-page = chapter.location().page()
+
+          // Find the current section.
+          let section = none
+
+          for sec in sections {
+            if (
+              sec.location().page() <= current-page and sec.location().page() >= chapter-page
+            ) {
+              section = sec
+            }
+          }
+
+          // Alternate relative to the chapter's first page.
+          let show-section = (
+            section != none and current-page > chapter-page and calc.rem(current-page - chapter-page, 2) == 1
+          )
+
+          let header-content = if show-section {
+            let n = counter(heading).at(section.location())
+            numbering(section.numbering, ..n)
+            [ ]
+            section.body
+          } else {
+            let n = counter(heading).at(chapter.location())
+            [Chapter ]
+            numbering(chapter.numbering, ..n)
+            [ ]
+            chapter.body
+          }
+
+          grid(
+            columns: (1fr, auto),
+            stroke: (bottom: 1pt),
+            inset: (bottom: 10pt),
+
+            align(left)[
+              #text(size: base-size * 0.8)[
+                #header-content
+              ]
+            ],
+
+            align(right)[
+              #text(size: base-size * 0.8)[
+                #current-page
+              ]
+            ],
+          )
+        }
+      }
+    }
+  },
 )
+
+// #set page(
+//   "a4",
+//   margin: (top: 1.75cm, bottom: 1cm, left: 1cm, right: 1cm),
+//   header: context {
+//     let current-page = here().page()
+
+//     let chapters = query(selector(heading.where(level: 1)))
+
+//     // Find the first chapter.
+//     let first-chapter = chapters.first()
+
+//     if first-chapter != none {
+//       let first-chapter-page = first-chapter.location().page()
+
+//       if current-page >= first-chapter-page {
+//         // Find the current chapter.
+//         let chapter = none
+
+//         for ch in chapters {
+//           if ch.location().page() <= current-page {
+//             chapter = ch
+//           }
+//         }
+
+//         if chapter != none {
+//           grid(
+//             columns: (1fr, auto),
+//             stroke: (bottom: 1pt),
+//             inset: (bottom: 10pt),
+
+//             align(left)[
+//               #text(size: base-size * 0.8)[
+//                 #let n = counter(heading).at(chapter.location())
+//                 Chapter #numbering(chapter.numbering, ..n) #chapter.body
+//               ]
+//             ],
+
+//             align(right)[
+//               #text(size: base-size * 0.8)[
+//                 #current-page
+//               ]
+//             ],
+//           )
+//         }
+//       }
+//     }
+//   },
+// )
 
 #set par(
   justify: true,
@@ -69,6 +198,7 @@
   it
 }
 
+
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
@@ -76,7 +206,7 @@
 #page(
   margin: (x: 0cm, y: 0cm),
 )[
-  #image("algebra-cover.pdf")
+  #image("prealgebra-cover.pdf")
 ]
 
 #page()[
@@ -101,100 +231,100 @@
 
 #counter(page).update(1)
 
-#set page(
-  header-ascent: 20pt,
-  header: context {
-    let current-page = here().page()
-    let all-headings = query(selector(heading))
+// #set page(
+//   header-ascent: 20pt,
+//   header: context {
+//     let current-page = here().page()
+//     let all-headings = query(selector(heading))
 
-    let on-page = all-headings.filter(
-      h => h.location().page() == current-page,
-    )
+//     let on-page = all-headings.filter(
+//       h => h.location().page() == current-page,
+//     )
 
-    // Chapter heading on this page?
-    let chapters-on-page = on-page.filter(h => h.level == 1)
+//     // Chapter heading on this page?
+//     let chapters-on-page = on-page.filter(h => h.level == 1)
 
-    let chapter-on-page = if chapters-on-page.len() > 0 {
-      chapters-on-page.first()
-    } else {
-      none
-    }
+//     let chapter-on-page = if chapters-on-page.len() > 0 {
+//       chapters-on-page.first()
+//     } else {
+//       none
+//     }
 
-    let page-number = align(right)[
-      #counter(page).display()
-    ]
+//     let page-number = align(right)[
+//       #counter(page).display()
+//     ]
 
-    if chapter-on-page != none {
-      // Chapter opening page.
-      text(size: 12pt)[
-        #page-number
-      ]
-    } else {
-      // Find the current chapter.
-      let chapters = all-headings.filter(
-        h => h.level == 1 and h.location().page() <= current-page,
-      )
+//     if chapter-on-page != none {
+//       // Chapter opening page.
+//       text(size: 12pt)[
+//         #page-number
+//       ]
+//     } else {
+//       // Find the current chapter.
+//       let chapters = all-headings.filter(
+//         h => h.level == 1 and h.location().page() <= current-page,
+//       )
 
-      let chapter = if chapters.len() > 0 {
-        chapters.last()
-      } else {
-        none
-      }
+//       let chapter = if chapters.len() > 0 {
+//         chapters.last()
+//       } else {
+//         none
+//       }
 
-      // Find sections belonging to the current chapter.
-      let sections = if chapter != none {
-        all-headings.filter(
-          h => (
-            h.level == 2 and h.location().page() >= chapter.location().page() and h.location().page() <= current-page
-          ),
-        )
-      } else {
-        ()
-      }
+//       // Find sections belonging to the current chapter.
+//       let sections = if chapter != none {
+//         all-headings.filter(
+//           h => (
+//             h.level == 2 and h.location().page() >= chapter.location().page() and h.location().page() <= current-page
+//           ),
+//         )
+//       } else {
+//         ()
+//       }
 
-      // Sections appearing on this page.
-      let sections-on-page = sections.filter(
-        h => h.location().page() == current-page,
-      )
+//       // Sections appearing on this page.
+//       let sections-on-page = sections.filter(
+//         h => h.location().page() == current-page,
+//       )
 
-      // Prefer the last section on this page.
-      let section = if sections-on-page.len() > 0 {
-        sections-on-page.last()
-      } else if sections.len() > 0 {
-        sections.last()
-      } else {
-        none
-      }
+//       // Prefer the last section on this page.
+//       let section = if sections-on-page.len() > 0 {
+//         sections-on-page.last()
+//       } else if sections.len() > 0 {
+//         sections.last()
+//       } else {
+//         none
+//       }
 
-      let header-text = if calc.odd(counter(page).get().first()) {
-        if section != none {
-          // section.body
-          let n = counter(heading).at(section.location())
-          [#numbering(section.numbering, ..n) #section.body]
-        } else {
-          // chapter.body
-          let n = counter(heading).at(chapter.location())
-          [Chapter #numbering(chapter.numbering, ..n) #chapter.body]
-        }
-      } else {
-        if chapter != none {
-          // chapter.body
-          let n = counter(heading).at(chapter.location())
-          [Chapter #numbering(chapter.numbering, ..n) #chapter.body]
-        } else {
-          none
-        }
-      }
-      text(size: 12pt)[
-        #grid(
-          columns: (auto, 1fr, auto),
-          stroke: (bottom: 1pt),
-          inset: (bottom: 7pt),
-          align(left)[#upper[#header-text]], [], page-number,
-        )
-      ]
-    }
-  },
-)
+//       let header-text = if calc.odd(counter(page).get().first()) {
+//         if section != none {
+//           // section.body
+//           let n = counter(heading).at(section.location())
+//           [#numbering(section.numbering, ..n) #section.body]
+//         } else {
+//           // chapter.body
+//           let n = counter(heading).at(chapter.location())
+//           [Chapter #numbering(chapter.numbering, ..n) #chapter.body]
+//         }
+//       } else {
+//         if chapter != none {
+//           // chapter.body
+//           let n = counter(heading).at(chapter.location())
+//           [Chapter #numbering(chapter.numbering, ..n) #chapter.body]
+//         } else {
+//           none
+//         }
+//       }
+//       text(size: 12pt)[
+//         #grid(
+//           columns: (auto, 1fr, auto),
+//           stroke: (bottom: 1pt),
+//           inset: (bottom: 7pt),
+//           align(left)[#upper[#header-text]], [], page-number,
+//         )
+//       ]
+//     }
+//   },
+// )
 
 #include "chapters/chapter1.typ"
