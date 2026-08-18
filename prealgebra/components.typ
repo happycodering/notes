@@ -1,8 +1,4 @@
-#let base-size = 13pt
-#let h1-scale = 1.6
-#let h2-scale = 1.2
-#let h3-scale = 1.1
-
+#let base-size = 11pt
 #let note(title: none, body) = block(
   fill: yellow.lighten(80%),
   stroke: (
@@ -39,7 +35,7 @@
   ]
   #h(6pt)
   #body
-  #align(right)[#sym.qed]
+  // #align(right)[#sym.qed]
 ]
 
 #let main-content(body) = {

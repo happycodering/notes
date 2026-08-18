@@ -1,4 +1,5 @@
 #import "../components.typ": *
+#import "@preview/cetz:0.5.2"
 
 = The Whole Numbers
 
@@ -203,7 +204,20 @@ We can visualize whole numbers by points on a line. The line below is called a
 The arrow to the right means that the whole numbers continue indefinitely.
 
 #figure(
-  image("../figures/1-1.pdf"),
+  cetz.canvas({
+    import cetz.draw: *
+
+    // Number line
+    line((0, 0), (7.7, 0), mark: (end: ">", fill: black), name: "line")
+    content("line.mid", anchor: "south", padding: (bottom: 20pt), [Number Line])
+    // Tick marks and numbers
+    for x in range(8) {
+      line((x, -0.1), (x, 0.1))
+      content((x, -0.25), str(x), anchor: "north")
+    }
+
+    // Title
+  }),
 )
 
 === Tables
@@ -292,10 +306,10 @@ necessary.
       [], [], [#text(fill: blue)[$1$]], [], [],
       [], [$3$], [$6$], [$5$], [],
       [$+$], [], [$8$], [$9$],
-      [#text(size: base-size * 80%)[$5$ ones $+$ $9$ ones $=$ $14$ ones or
+      [#text(size: 11pt * 80%)[$5$ ones $+$ $9$ ones $=$ $14$ ones or
         $1$ ten $+$ $4$ ones]],
       [], [], [], [#text(fill: blue)[$4$]],
-      [#text(size: base-size * 80%)[Write the $4$ ones in the ones place and
+      [#text(size: 11pt * 80%)[Write the $4$ ones in the ones place and
         carry the $1$ ten to the tens place.]],
     )
   ]
@@ -314,13 +328,13 @@ necessary.
       [],
       [$8$],
       [$9$],
-      [#text(size: base-size * 80%)[ $1$ ten $+$ $6$ tens $+$
+      [#text(size: 11pt * 80%)[ $1$ ten $+$ $6$ tens $+$
         $8$ tens $=$ $15$ tens or $1$ hundred $+$ $5$ tens]],
       [],
       [],
       [#text(fill: blue)[$5$]],
       [$4$],
-      [#text(size: base-size * 80%)[Write the $5$ tens in the tens place and
+      [#text(size: 11pt * 80%)[Write the $5$ tens in the tens place and
         carry the $1$ hundred to the hundreds place.]],
     )
   ]
@@ -339,12 +353,12 @@ necessary.
       [],
       [$8$],
       [$9$],
-      [#text(size: base-size * 80%)[$1$ hundred $+$ $3$ hundreds $=$ $4$ hundreds]],
+      [#text(size: 11pt * 80%)[$1$ hundred $+$ $3$ hundreds $=$ $4$ hundreds]],
       [],
       [#text(fill: blue)[$4$]],
       [$5$],
       [$4$],
-      [#text(size: base-size * 80%)[Write the $4$ hundreds in the hundreds place.]],
+      [#text(size: 11pt * 80%)[Write the $4$ hundreds in the hundreds place.]],
     )
   ]
 ]
