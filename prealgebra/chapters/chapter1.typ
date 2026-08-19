@@ -1,7 +1,8 @@
-#import "../components.typ": *
-#import "@preview/cetz:0.5.2"
+#import "../library.typ": *
 
 = The Whole Numbers
+
+#chapter-outline()
 
 == Place Value, Names for Numbers, and Tables
 
