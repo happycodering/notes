@@ -2,15 +2,17 @@
 #let template(body) = {
   set page(
     "a4",
+    margin: 2.5cm,
     header: context {
       let current-page = here().page()
 
       let chapters = query(selector(heading.where(level: 1)))
       let sections = query(selector(heading.where(level: 2)))
 
-      let first-chapter = chapters.first()
+      if chapters.len() != 0 {
+        let first-chapter = chapters.first()
 
-      if first-chapter != none {
+        if first-chapter != none {}
         let first-chapter-page = first-chapter.location().page()
 
         if current-page >= first-chapter-page {
