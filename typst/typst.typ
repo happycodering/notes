@@ -12,11 +12,7 @@
   line((0, 0), (1, 0))
 })
 
-#context {
-  let p = page
-  (
-    width: p.width,
-    height: p.height,
-    margin: p.margin,
-  )
-}
+
+#(decimal(10 / 3) * decimal(3))
+
+#(10 / 3 * 3)
