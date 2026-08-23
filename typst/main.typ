@@ -11,8 +11,3 @@
   circle((0, 0), fill: gradient.linear(..color.map.flare), stroke: none)
   line((0, 0), (1, 0))
 })
-
-
-#(decimal(10 / 3) * decimal(3))
-
-#(10 / 3 * 3)

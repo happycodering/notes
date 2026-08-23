@@ -131,45 +131,20 @@
 
   show heading: set text(fill: navy)
 
-  show heading.where(level: 1): it => {
+  show heading: it => {
     let chapters = query(heading.where(level: 1))
-    if chapters.first().location() != it.location() {
+    if (it.level == 1) and (chapters.first().location()) != (it.location()) {
       pagebreak()
     }
-    // pagebreak()
-    v(1em)
-    it
-    v(1em)
-  }
-
-  show heading.where(level: 2): it => {
-    v(1em)
-    it
-    v(1em)
-  }
-
-  show heading.where(level: 3): it => {
-    v(1em)
-    it
-    v(1em)
-  }
-
-  show heading.where(level: 4): it => {
-    v(1em)
-    it
-    v(1em)
-  }
-
-  show heading.where(level: 5): it => {
-    v(1em)
-    it
-    v(1em)
-  }
-
-  show heading.where(level: 6): it => {
-    v(1em)
-    it
-    v(1em)
+    if (it.level == 1) {
+      v(3em)
+      it
+      v(1em)
+    } else {
+      v(1em)
+      it
+      v(1em)
+    }
   }
 
   show title: it => {
