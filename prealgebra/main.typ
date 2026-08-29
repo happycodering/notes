@@ -1,5 +1,5 @@
-#import "library.typ": *
-#set document(title: [Algebra])
+#import "components.typ": *
+#set document(title: [Prealgebra])
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -23,4 +23,4 @@
   #outline(title: none)
 ]
 
-#include "chapters/chapter1.typ"
+#include "text/chapter1.typ"

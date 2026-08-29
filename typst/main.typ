@@ -1,5 +1,5 @@
-#import "library.typ": *
-#set document(title: [Algebra])
+#import "components.typ": *
+#set document(title: [Typst])
 
 
 ///////////////////////////////////////////////////////////////////////////////

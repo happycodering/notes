@@ -1,3 +1,9 @@
+#import "@preview/cetz:0.5.2"
+#import "@preview/ctz-euclide:0.2.0"
+#import "@preview/lilaq:0.6.0" as lq
+#import "@preview/simple-plot:1.1.0"
+#import "@preview/cetz-plot:0.1.4"
+
 #let base-size = 11pt
 #let template(body) = {
   set page(
@@ -134,16 +140,14 @@
   show heading: it => {
     let chapters = query(heading.where(level: 1))
     if (it.level == 1) and (chapters.first().location()) != (it.location()) {
-      pagebreak()
+      // pagebreak()
     }
     if (it.level == 1) {
-      v(3em)
-      it
-      v(1em)
+      block(
+        inset: (top: 3em, bottom: 1em), it
+      )
     } else {
-      v(1em)
-      it
-      v(1em)
+      block(inset: (top: 1em, bottom: 1em), it)
     }
   }
 
