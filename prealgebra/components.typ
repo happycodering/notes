@@ -140,11 +140,12 @@
   show heading: it => {
     let chapters = query(heading.where(level: 1))
     if (it.level == 1) and (chapters.first().location()) != (it.location()) {
-      // pagebreak()
+      pagebreak()
     }
     if (it.level == 1) {
       block(
-        inset: (top: 3em, bottom: 1em), it
+        inset: (top: 3em, bottom: 1em),
+        it,
       )
     } else {
       block(inset: (top: 1em, bottom: 1em), it)

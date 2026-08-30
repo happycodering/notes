@@ -144,10 +144,11 @@
     }
     if (it.level == 1) {
       block(
-        above: 3em, below: 1em, it
+        inset: (top: 3em, bottom: 1em),
+        it,
       )
     } else {
-      block(above: 1em, below: 1em, it)
+      block(inset: (top: 1em, bottom: 1em), it)
     }
   }
 

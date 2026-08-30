@@ -1,4 +1,4 @@
-#import "library.typ": *
+#import "components.typ": *
 #set document(title: [Biology])
 
 
