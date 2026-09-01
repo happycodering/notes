@@ -1,4 +1,4 @@
-#import "../library.typ": *
+#import "../components.typ": *
 
 = The Whole Numbers
 
@@ -252,17 +252,17 @@ and the process of finding their sum is called *addition*.
   #block(
     breakable: false,
   )[
-    #table(
+    #grid(
       columns: 5,
       align: center,
       inset: (x: 2pt, y: 0pt),
       stroke: 0pt,
       $2$, $+$, $4$, $=$, $6$,
-      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      grid.cell(inset: (y: 13pt))[#scale(y: 170%)[#text(fill: blue)[$arrow.t$]]],
       [],
-      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      grid.cell(inset: (y: 13pt))[#scale(y: 170%)[#text(fill: blue)[$arrow.t$]]],
       [],
-      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      grid.cell(inset: (y: 13pt))[#scale(y: 170%)[#text(fill: blue)[$arrow.t$]]],
 
       [#text(fill: blue)[addend]], [], [#text(fill: blue)[addend]], [], [#text(fill: blue)[sum]],
     )
@@ -278,11 +278,12 @@ then the hundreds place, and so on.
 
   #align(center)[
     #block(breakable: false)[
-      #table(
+      #grid(
         columns: 5,
         align: center,
         stroke: none,
-        table.hline(stroke: 0.5pt, start: 0, y: 2),
+        inset: 5pt,
+        grid.hline(stroke: 0.5pt, start: 0, y: 2),
         [], [$2$], [$2$], [$3$], [$6$],
         [$+$], [], [$1$], [$6$], [$0$],
         [], [$1$], [$3$], [$9$], [$6$],
@@ -299,11 +300,12 @@ necessary.
   To add $365$ + $89$, add the ones-place digits first.
 
   #block(breakable: false)[
-    #table(
+    #grid(
       columns: 5,
       align: left,
       stroke: none,
-      table.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
+      inset: 5pt,
+      grid.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
       [], [], [#text(fill: blue)[$1$]], [], [],
       [], [$3$], [$6$], [$5$], [],
       [$+$], [], [$8$], [$9$],
@@ -318,11 +320,12 @@ necessary.
   Next, add the tens-place digits.
 
   #block(breakable: false)[
-    #table(
+    #grid(
       columns: 5,
       align: left,
       stroke: none,
-      table.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
+      inset: 5pt,
+      grid.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
       [], [#text(fill: blue)[$1$]], [#text(fill: blue)[$1$]], [], [],
       [], [$3$], [$6$], [$5$], [],
       [$+$],
@@ -343,11 +346,12 @@ necessary.
   Next, add the hundreds-place digits.
 
   #block(breakable: false)[
-    #table(
+    #grid(
       columns: 5,
+      inset: 5pt,
       align: left,
       stroke: none,
-      table.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
+      grid.hline(stroke: 0.5pt, start: 0, end: 4, y: 3),
       [], [#text(fill: blue)[$1$]], [#text(fill: blue)[$1$]], [], [],
       [], [$3$], [$6$], [$5$], [],
       [$+$],
@@ -398,17 +402,17 @@ numbers whose sum is $10$, $20$, and so on.
     breakable: false,
     inset: 0pt,
   )[
-    #table(
+    #grid(
       columns: 5,
       align: center,
       inset: (x: 2pt, y: 0pt),
       stroke: 0pt,
       $8$, $-$, $5$, $=$, $3$,
-      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      grid.cell(inset: (y: 13pt))[#scale(y: 170%)[#text(fill: blue)[$arrow.t$]]],
       [],
-      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      grid.cell(inset: (y: 13pt))[#scale(y: 170%)[#text(fill: blue)[$arrow.t$]]],
       [],
-      table.cell(inset: (y: 13pt))[#scale(y: 150%)[#text(fill: blue)[#sym.arrow.t]]],
+      grid.cell(inset: (y: 13pt))[#scale(y: 170%)[#text(fill: blue)[$arrow.t$]]],
 
       [#text(fill: blue)[minuend]], [], [#text(fill: blue)[subtrahend]], [], [#text(fill: blue)[difference]],
     )
