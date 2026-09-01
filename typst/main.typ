@@ -11,3 +11,13 @@
   circle((0, 0), fill: gradient.linear(..color.map.flare), stroke: none)
   line((0, 0), (1, 0))
 })
+
+#list(
+  [one],
+  [two],
+  [three],
+  [four],
+  [
+    finve
+  ],
+)
